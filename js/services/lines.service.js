@@ -70,8 +70,16 @@ function updateLineText(lineId, text) {
 } //TODO: mak updaters for all properties of line
 
 function addLine() {
-  //TODO:
   const editor = getEditor()
+  const lines = getLines()
+  const elCanvas = getElCanvas()
+  let pos = { x: 0, y: elCanvas.height / 2 }
+  if (lines.length === 0) pos = { x: 0, y: 0 }
+  if (lines.length === 1) pos = { x: 0, y: elCanvas.height - 20 }
+
+  const line = _createLine(pos)
+  console.log('line', line)
+  line.data = lines.push(line)
 }
 
 function _createLine(pos) {
