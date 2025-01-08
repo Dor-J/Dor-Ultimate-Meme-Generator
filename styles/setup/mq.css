@@ -1,0 +1,15 @@
+/* Mobile Only */
+@media (max-width: 920px) {
+}
+
+/* Small (iphone7)*/
+@media (min-width: 740px) {
+}
+
+/* Medium */
+@media (min-width: 920px) {
+}
+
+/* Large */
+@media (min-width: 1100px) {
+}

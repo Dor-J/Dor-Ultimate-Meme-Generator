@@ -1,0 +1,21 @@
+/* main layout */
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 1fr 100px;
+  place-items: center;
+}
+
+/* main content layout */
+.content-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+}
+
+.pics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 1rem;
+}
