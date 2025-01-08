@@ -68,12 +68,12 @@ function renderLines() {
 }
 
 function renderLine(line) {
-  const { pos, color, radius, text } = getLineById(line.id)
+  const { pos, color, radius, data } = getLineById(line.id)
   if (line.type === 'circle') {
     //Draw the circle/emoji
-    drawArc(pos.x, pos.y, radius, color, text)
+    drawArc(pos.x, pos.y, radius, color, data)
   }
-  drawText(text, pos.x, pos.y)
+  drawText(data, pos.x, pos.y)
 }
 
 function drawArc(x, y, radius = 60, color = 'blue') {
