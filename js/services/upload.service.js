@@ -1,7 +1,7 @@
 // js/services/upload.service.js
 'use strict'
 
-async function uploadImg(imgData, onSuccess) {
+async function uploadMeme(imgData, onSuccess) {
   const CLOUD_NAME = 'webify'
   const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`
   const formData = new FormData()
@@ -19,18 +19,18 @@ async function uploadImg(imgData, onSuccess) {
   }
 }
 
-function onDownloadCanvas(elLink) {
-  const dataUrl = gElCanvas.toDataURL()
+function onDownloadMeme(elLink) {
+  const elCanvas = getElCanvas()
+  const dataUrl = elCanvas.toDataURL()
   elLink.href = dataUrl
   elLink.download = 'That-thing-you-draw'
 }
 
 function onImgInput(ev) {
-  loadImageFromInput(ev, renderImg)
+  loadImageFromInput(ev, renderMeme)
 }
 
 function loadImageFromInput(ev, onImageReady) {
-  // document.querySelector('.share-container').innerHTML = ''
   const reader = new FileReader()
 
   reader.onload = function (event) {
@@ -43,14 +43,18 @@ function loadImageFromInput(ev, onImageReady) {
   reader.readAsDataURL(ev.target.files[0])
 }
 
-function renderImg(img) {
-  gElCanvas.height = (img.naturalHeight / img.naturalWidth) * gElCanvas.width
-  gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+function renderMeme(img) {
+  const elCanvas = getElCanvas()
+  const ctx = getCtx()
+
+  elCanvas.height = (img.naturalHeight / img.naturalWidth) * elCanvas.width
+  ctx.drawImage(img, 0, 0, elCanvas.width, elCanvas.height)
 }
 
-function onUploadImg(ev) {
+function onUploadMeme(ev) {
   ev.preventDefault()
-  const canvasData = gElCanvas.toDataURL('image/jpeg')
+  const elCanvas = getElCanvas()
+  const canvasData = elCanvas.toDataURL('image/jpeg')
 
   // After a succesful upload, allow the user to share on Facebook
   function onSuccess(uploadedImgUrl) {
@@ -60,5 +64,5 @@ function onUploadImg(ev) {
     )
   }
 
-  uploadImg(canvasData, onSuccess)
+  uploadMeme(canvasData, onSuccess)
 }
