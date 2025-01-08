@@ -8,7 +8,7 @@ function onInitCanvas() {
 function onResize() {
   const elContainer = document.querySelector('.canvas-container')
   const elCanvas = getElCanvas()
-  elCanvas.width = elContainer.clientWidth
+  elCanvas.width = elContainer.clientWidth + 'px'
 }
 
 function onClearCanvas() {
