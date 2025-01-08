@@ -12,8 +12,9 @@ function onResize() {
 }
 
 function onClearCanvas() {
+  const elCanvas = getElCanvas()
   const ctx = getCtx()
-  ctx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
+  ctx.clearRect(0, 0, elCanvas.width, elCanvas.height)
 }
 
 function onDown(ev) {
@@ -30,7 +31,7 @@ function onMove(ev) {
   if (!isLinesClicked(pos)) return
 
   //get line by id
-  const line = getLinesClicked(pos)
+  const line = getClickedLine(pos)
 
   const dx = pos.x - line.gStartPos.x
   const dy = pos.y - line.gStartPos.y
@@ -46,7 +47,7 @@ function onMove(ev) {
 function onUp(ev) {
   console.log('onUp')
 
-  setLineDrag(false)
+  // setLineDrag(false)
 
   document.body.style.cursor = 'default'
 }

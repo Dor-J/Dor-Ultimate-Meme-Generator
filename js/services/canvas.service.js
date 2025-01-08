@@ -1,8 +1,8 @@
 // js/services/canvas.service.js
 'use strict'
 
-let gElCanvas
-let gCtx
+var gElCanvas = null
+var gCtx = null
 
 function setCanvas() {
   console.log('setCanvas activated')
