@@ -1,0 +1,13 @@
+.nav-link {
+  cursor: pointer;
+  padding: 1em;
+  border-radius: 2em;
+
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: navy;
+    color: #fff;
+    box-shadow: inset 0px -6px 0px var(--clr-primary-dot);
+  }
+}
