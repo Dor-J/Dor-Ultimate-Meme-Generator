@@ -1,0 +1,5 @@
+.about-container {
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  column-gap: 1em;
+}
