@@ -1,0 +1,41 @@
+/* English fonts */
+@font-face {
+  font-family: Bangers;
+  src: url(/fonts/Bangers/Bangers-Regular.ttf);
+}
+
+@font-face {
+  font-family: DMS-Regular;
+  src: url(/fonts/DM_Sans/DMSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: DMS-Bold;
+  src: url(/fonts/DM_Sans/DMSans-Bold.ttf);
+}
+
+/* Hebrew fonts */
+@font-face {
+  font-family: Noto-Serif-Heb-Regular;
+  src: url(/fonts/Noto_Serif_Hebrew/NotoSerifHebrew-Regular.ttf);
+}
+
+@font-face {
+  font-family: Noto-Serif-Heb-Bold;
+  src: url(/fonts/Noto_Serif_Hebrew/NotoSerifHebrew-Bold.ttf);
+}
+
+@font-face {
+  font-family: Secular-Heb-Regular;
+  src: url(/fonts/Secular_One/SecularOne-Regular.ttf);
+}
+
+/* font awesome (for emojies) */
+@font-face {
+  font-family: fa;
+  src: url(/fonts/fa/fa-brands-400.ttf);
+}
+
+.fa::before {
+  font-family: fa;
+}
