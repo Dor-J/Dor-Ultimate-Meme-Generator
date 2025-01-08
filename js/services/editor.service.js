@@ -15,14 +15,19 @@ function setEditorColor(color = '#000000') {
   gEditor.color = color
 }
 
-function setEditorSize(size = 5) {
-  gEditor.size = size
+function setEditorRadius(radius = 5) {
+  gEditor.radius = radius
 }
 
-function setEditorActive(bool = false) {
-  gEditor.isActive = bool
-}
+function _createEditor() {
+  return {
+    text: '',
+    fontSize: 5,
+    radius: 5,
+    fontFamily: 'ariel',
+    strokeColor: '',
+    fillColor: '',
 
-function isEditorActive() {
-  return gEditor.isActive
+    //TODO: finish up
+  }
 }
