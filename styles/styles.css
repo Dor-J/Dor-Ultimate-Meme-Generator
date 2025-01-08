@@ -8,6 +8,13 @@
 @import url(basics/helpers.css);
 
 /* Components */
+@import url(components/main-header.css);
+@import url(components/brand-logo.css);
+@import url(components/nav-link.css);
+@import url(components/section-header.css);
+@import url(components/canvas-container.css);
+@import url(components/editor-container.csss);
+@import url(components/footer.css);
 
 /* Media Queries */
 @import url(setup/mq.css);
