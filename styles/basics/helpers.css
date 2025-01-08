@@ -44,6 +44,11 @@
 }
 
 /* grid helpers */
+
+.grid {
+  display: grid;
+}
+
 .grid-gap-1 {
   gap: 1em;
 }
