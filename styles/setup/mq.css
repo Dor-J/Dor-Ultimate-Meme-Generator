@@ -1,13 +1,72 @@
 /* Mobile Only */
-@media (max-width: 920px) {
+@media (max-width: 860px) {
+  .main-header .btn-toggle-menu {
+    display: block;
+    position: relative;
+  }
+  .main-header .btn-toggle-menu::before {
+    position: absolute;
+    content: 'X';
+    font-size: 1.8rem;
+    font-weight: 900;
+    top: -80%;
+    right: -40%;
+    display: none;
+  }
+
+  body.menu-open .main-header .btn-toggle-menu::before {
+    display: block;
+  }
+
+  .main-nav {
+    position: fixed;
+    top: 60px;
+    background-color: rgba(0, 0, 0, 0.9);
+    left: 0;
+    width: 100%;
+
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows 0.8s ease-in-out;
+    align-items: end;
+    align-content: end;
+
+    text-align: center;
+  }
+
+  .main-nav a {
+    color: #fff;
+    box-shadow: none;
+  }
+
+  .main-nav a.active-nav {
+    box-shadow: none;
+  }
+
+  body.menu-open .main-nav {
+    grid-template-rows: 1fr;
+  }
+
+  .main-nav > ul {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .main-nav > ul li {
+    border-bottom: 2px solid #fff;
+  }
 }
 
-/* Small (iphone7)*/
-@media (min-width: 740px) {
+/* Small */
+@media (min-width: 680px) {
 }
 
 /* Medium */
-@media (min-width: 920px) {
+@media (min-width: 860px) {
+  .main-header .btn-toggle-menu {
+    display: none;
+  }
 }
 
 /* Large */
