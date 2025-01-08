@@ -107,12 +107,108 @@
           <div class="canvas-container grid pa-05">
             <canvas width="200" height="200"></canvas>
           </div>
+
           <div class="editor-container pa-05">
-            <div class="editor grid">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
-                explicabo!
-              </p>
+            <div class="editor grid grid-gap-1">
+              <div class="text-input-container full flex-col">
+                <label for="meme-text-input">Enter text:</label>
+                <input
+                  type="text"
+                  id="meme-text-input"
+                  class="meme-text-input"
+                  placeholder="Add Text Here"
+                  oninput="onAddTxt(this)"
+                />
+              </div>
+              <div class="input-editors-container full">
+                <button
+                  onclick="onSwitchLine()"
+                  class="btn-editor btn-switch-inputs"
+                >
+                  switch-inputs
+                </button>
+                <button onclick="onAddLine()" class="btn-editor btn-add-input">
+                  add-input
+                </button>
+                <button
+                  onclick="onDeleteLine()"
+                  class="btn-editor btn-delete-input"
+                >
+                  delete-input
+                </button>
+              </div>
+
+              <div class="font-editors-container full">
+                <button class="btn-font" onclick="onUpdateLineSize(1)">
+                  font-size-up
+                </button>
+                <button class="btn-font" onclick="onUpdateLineSize(-1)">
+                  font-size-down
+                </button>
+                <button class="btn-font" onclick="onSetAlignment('left')">
+                  align-left
+                </button>
+                <button class="btn-font" onclick="onSetAlignment('center')">
+                  align-center
+                </button>
+                <button class="btn-font" onclick="onSetAlignment('right')">
+                  align-right
+                </button>
+                <select class="font-picker" onchange="onSetFont(this)">
+                  <option value="times new roman">TIMES NEW ROMAN</option>
+                  <option value="arial">ARIAL</option>
+                  <option value="verdana">VERDANA</option>
+                  <option value="tahoma">TAHOMA</option>
+                  <option value="courier new">COURIER NEW</option>
+                  <option value="impact">IMPACT</option>
+                  <option value="georgia">GEORGIA</option>
+                  <option value="garamond">GARAMOND</option>
+                </select>
+                <button
+                  class="btn-font stroke-color-icon color-picker"
+                  style="color: rgb(23, 180, 20)"
+                >
+                  <input
+                    type="color"
+                    class="stroke-color-input btn-font"
+                    oninput="onSetStrokeStyle(this)"
+                  />
+                </button>
+                <button
+                  class="btn-font fill-color-icon color-picker"
+                  style="color: #e4591d"
+                >
+                  <input
+                    type="color"
+                    class="fill-color-input btn-font"
+                    oninput="onSetFillStyle(this)"
+                  />
+                </button>
+              </div>
+              <div class="sticker-container full"></div>
+              <div class="save-container full">
+                <a
+                  href="#"
+                  data-trans="save"
+                  class="btn btn-save"
+                  onclick="onSaveMeme()"
+                  >Save</a
+                >
+                <a
+                  href="#"
+                  data-trans="download"
+                  class="btn btn-download"
+                  onclick="onDownloadMeme(this)"
+                  >Download</a
+                >
+                <a
+                  href="#"
+                  data-trans="share"
+                  class="btn btn-share"
+                  onclick="onShareMeme()"
+                  >Share</a
+                >
+              </div>
             </div>
           </div>
         </div>

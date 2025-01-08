@@ -1,0 +1,8 @@
+.font-editors-container .btn-font {
+  font-family: fa;
+  font-size: clamp(1vw, 1em, 3.5vw);
+  aspect-ratio: 1;
+  color: black;
+  border: none;
+  border-radius: 10px;
+}
