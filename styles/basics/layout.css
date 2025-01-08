@@ -20,3 +20,9 @@
   grid-auto-rows: auto;
   grid-gap: 1rem;
 }
+
+/* main editor layout */
+.main-editor {
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 0.1fr 1fr;
+}
