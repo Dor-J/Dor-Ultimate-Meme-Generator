@@ -1,3 +1,4 @@
+// js/services/storage.service.js
 'use strict'
 
 function saveToStorage(key, value) {

@@ -1,3 +1,4 @@
+// js/services/upload.service.js
 'use strict'
 
 async function uploadImg(imgData, onSuccess) {
