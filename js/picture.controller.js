@@ -1,8 +1,8 @@
 // js/picture.controller.js
 'use strict'
 
-function renderPics() {
-  const pics = getPics()
+function renderPics(isSaved = false) {
+  const pics = isSaved ? getSavedPics() : getPics()
 
   const strHTMLs = pics
     .map((pic) => {
@@ -23,7 +23,8 @@ function renderPics() {
     })
     .join('')
 
-  const elPicsGrid = document.querySelector('.pics-grid')
+  const selector = isSaved ? 'section.saved' : 'section.pics-gallery'
+  const elPicsGrid = document.querySelector(`${selector} .pics-grid`)
   elPicsGrid.innerHTML = strHTMLs
 
   pics.forEach((pic) => {
