@@ -1,18 +1,19 @@
 /* main layout */
 .main-layout {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 100px 1fr 100px;
+  grid-template-columns: 0.1fr 1fr 0.1fr;
   place-items: center;
 }
 
-/* main content layout */
-.content-layout {
-  display: grid;
-  grid-template-columns: 1fr;
-  place-items: center;
+.main-layout > .full {
+  grid-column: 1/-1;
 }
 
+.main-layout > *:not(.full) {
+  grid-column: 2;
+}
+
+/* pics content layout */
 .pics-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
