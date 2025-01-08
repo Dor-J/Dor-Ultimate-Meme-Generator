@@ -91,6 +91,6 @@ function _createLine(pos) {
     color: 'blue',
     isDrag: false,
     gStartPos: pos,
-    text: '',
+    data: '',
   })
 }
