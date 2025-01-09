@@ -153,3 +153,89 @@
 .pa-inline-2 {
   padding-inline: 2em;
 }
+
+/* margin helpers */
+
+.ma-in-st-05 {
+  margin-inline-start: 0.5em;
+}
+
+.ma-in-st-1 {
+  margin-inline-start: 1em;
+}
+
+.ma-in-st-2 {
+  margin-inline-start: 2em;
+}
+
+.ma-in-en-05 {
+  margin-inline-end: 0.5em;
+}
+
+.ma-in-en-1 {
+  margin-inline-end: 1em;
+}
+
+.ma-in-en-2 {
+  margin-inline-end: 2em;
+}
+
+.ma-in-05 {
+  margin-inline: 0.5em;
+}
+
+.ma-in-1 {
+  margin-inline: 1em;
+}
+
+.ma-in-2 {
+  margin-inline: 2em;
+}
+
+.ma-bl-st-05 {
+  margin-block-start: 0.5em;
+}
+
+.ma-bl-st-1 {
+  margin-block-start: 1em;
+}
+
+.ma-bl-st-2 {
+  margin-block-start: 2em;
+}
+
+.ma-bl-en-05 {
+  margin-block-end: 0.5em;
+}
+
+.ma-bl-en-1 {
+  margin-block-end: 1em;
+}
+
+.ma-bl-en-2 {
+  margin-block-end: 2em;
+}
+
+.ma-bl-05 {
+  margin-block: 0.5em;
+}
+
+.ma-bl-1 {
+  margin-block: 1em;
+}
+
+.ma-bl-2 {
+  margin-block: 2em;
+}
+
+.ma-05 {
+  margin: 0.5em;
+}
+
+.ma-1 {
+  margin: 1em;
+}
+
+.ma-2 {
+  margin: 2em;
+}
