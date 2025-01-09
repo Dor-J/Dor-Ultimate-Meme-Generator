@@ -3,15 +3,27 @@
 
 var gElCanvas = null
 var gCtx = null
+var gCurrentImage = null
 
+//GET
+function getElCanvas() {
+  return gElCanvas
+}
+
+function getCtx() {
+  return gCtx
+}
+
+function getCurrentImage() {
+  return gCurrentImage
+}
+
+//SET
 function setCanvas() {
   gElCanvas = document.querySelector('canvas')
   gCtx = gElCanvas.getContext('2d')
 }
 
-function getElCanvas() {
-  return gElCanvas
-}
-function getCtx() {
-  return gCtx
+function setCurrentImage(image) {
+  gCurrentImage = image
 }
