@@ -28,7 +28,7 @@ function onClearCanvas() {
 
 function onDown(ev) {
   console.log('onDown')
-  document.body.style.cursor = 'grab'
+  document.body.style.cursor = 'grabbing'
   //TODO:
 }
 
@@ -50,7 +50,7 @@ function onMove(ev) {
   line.gStartPos.x = pos.x
   line.gStartPos.y = pos.y
   // const editor = getEditor()
-  document.body.style.cursor = 'grabbing'
+  document.body.style.cursor = 'grab'
 }
 
 function onUp(ev) {
@@ -66,6 +66,7 @@ function renderCanvas() {
 
   renderLines()
 }
+
 function renderLines() {
   console.log('renderLines active')
 
@@ -86,6 +87,7 @@ function renderLine(line) {
 }
 
 function drawArc(x, y, radius = 60, color = 'blue') {
+  //TODO:
   gCtx.beginPath()
   gCtx.lineWidth = '6'
   gCtx.arc(x, y, radius, 0, 2 * Math.PI)
@@ -95,9 +97,10 @@ function drawArc(x, y, radius = 60, color = 'blue') {
   gCtx.fill()
 }
 
-function drawText(x, y, editor) {
+function drawText(x, y) {
   //TODO:
-  ctx = getCtx()
+  const editor = getEditor()
+  const ctx = getCtx()
   ctx.beginPath()
   ctx.lineWidth = 2
   ctx.strokeStyle = 'black'

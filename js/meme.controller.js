@@ -4,10 +4,9 @@
 function onInit() {
   console.log('Starting meme generator')
   onInitCanvas()
+  onInitPictures()
   addEventListeners()
 }
-
-function renderMeme() {}
 
 function onToggleMenu() {
   document.body.classList.toggle('menu-open')
