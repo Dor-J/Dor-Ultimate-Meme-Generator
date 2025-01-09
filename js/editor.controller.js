@@ -71,7 +71,27 @@ function onSetFillStyle(elFillColorInput) {
 
 // SAVE, DOWNLOAD, SOCIAL
 function onDownloadMeme(elLink) {
+  const ctx = getCtx()
+
+  // Temporarily remove selection rectangle
+  const activeLine = getActiveLine()
+  if (activeLine) {
+    activeLine.isSelected = false
+    renderCanvas()
+  }
+
+  // Generate image for download
+  const elCanvas = getElCanvas()
+  const dataUrl = elCanvas.toDataURL('image/png')
+  elLink.href = dataUrl
+
   downloadMeme(elLink)
+
+  // Restore selection rectangle
+  if (activeLine) {
+    activeLine.isSelected = true
+    renderCanvas()
+  }
 }
 
 function onShareMeme(ev) {
