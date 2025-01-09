@@ -55,15 +55,6 @@ function updateActiveLineFontSize(diff) {
   if (activeLine) {
     const newFontSize = Math.max(1, activeLine.fontSize + diff)
     updateLineFontSize(activeLine.id, newFontSize)
-    saveEditorState()
-  }
-}
-
-function updateActiveLineFontSize(diff) {
-  const activeLine = getActiveLine()
-  if (activeLine) {
-    const newFontSize = Math.max(1, activeLine.fontSize + diff)
-    updateLineFontSize(activeLine.id, newFontSize)
     gEditor.fontSize = newFontSize
     saveEditorState()
   }

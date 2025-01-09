@@ -73,7 +73,6 @@ function createNewLine(pos, type = 'text', content = '') {
     id: makeId(5),
     text: type === 'text' ? content : '',
     type,
-    text: '',
     fontSize: 20,
     fontFamily: 'Arial',
     strokeColor: '#000000',
@@ -135,7 +134,7 @@ function addDefaultLine() {
     //  second line at bottom
     createNewLine({ x: elCanvas.width / 2, y: elCanvas.height - 40 })
   } else {
-    // Add others center
+    // add others center
     createNewLine({ x: elCanvas.width / 2, y: elCanvas.height / 2 })
   }
 }
