@@ -26,14 +26,13 @@ function getPicByIdx(idx) {
 
 //ADD PIC
 function addUploadedPic(img) {
-  const pic = _createPic(img) //TODO:
+  const pic = _createPic(img)
   gPictures.push(pic)
   _savePicsToStorage()
 }
 
 //REMOVE PIC
 function removePic(picId) {
-  console.log('removePic picId', picId)
   const idx = gPictures.findIndex((pic) => pic.id === picId)
   if (idx === -1) return
   gPictures.splice(idx, 1)
