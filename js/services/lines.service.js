@@ -125,3 +125,17 @@ function moveLine(dx, dy) {
     renderCanvas()
   }
 }
+
+function addDefaultLine() {
+  const elCanvas = getElCanvas()
+  if (gLines.length === 0) {
+    //  default line top
+    createNewLine({ x: elCanvas.width / 2, y: 40 })
+  } else if (gLines.length === 1) {
+    //  second line at bottom
+    createNewLine({ x: elCanvas.width / 2, y: elCanvas.height - 40 })
+  } else {
+    // Add others center
+    createNewLine({ x: elCanvas.width / 2, y: elCanvas.height / 2 })
+  }
+}
