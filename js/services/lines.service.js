@@ -68,30 +68,20 @@ function deleteLine(lineId) {
 }
 
 // CREATE
-function addLine() {
-  const editor = getEditor()
-  const lines = getLines()
-  const elCanvas = getElCanvas()
-  let pos = { x: 0, y: elCanvas.height / 2 }
-  if (lines.length === 0) pos = { x: 0, y: 0 }
-  if (lines.length === 1) pos = { x: 0, y: elCanvas.height - 20 }
-
-  const line = _createLine(pos)
-  console.log('line', line)
-
-  lines.push(line)
-}
-
-function createNewLine(pos) {
+function createNewLine(pos, type = 'text', content = '') {
   const newLine = {
     id: makeId(5),
+    text: type === 'text' ? content : '',
+    type,
     text: '',
     fontSize: 20,
     fontFamily: 'Arial',
     strokeColor: '#000000',
     fillColor: '#ffffff',
     alignment: 'center',
+    size: type === 'circle' ? 60 : null, // radius
     pos,
+    isDrag: false,
   }
   gLines.push(newLine)
   saveLinesState()
@@ -102,6 +92,7 @@ function saveLinesState() {
   saveToStorage(STORAGE_KEY_LINES, gLines)
 }
 
+// INTERACTION
 function isLinesClicked(clickedPos) {
   return gLines.some((line) => {
     const { pos } = line
