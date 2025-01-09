@@ -3,3 +3,6 @@
   place-items: center;
   column-gap: 1em;
 }
+.about-container img {
+  border-radius: 50%;
+}

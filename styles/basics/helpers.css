@@ -74,6 +74,10 @@
   display: grid;
 }
 
+.grid.g-pi-center {
+  place-items: center;
+}
+
 .grid-gap-05 {
   gap: 0.5em;
 }

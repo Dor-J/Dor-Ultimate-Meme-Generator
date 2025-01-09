@@ -4,4 +4,8 @@
 
   grid-template-columns: 1fr;
   justify-items: center;
+  width: 100%;
+}
+.canvas-container canvas:hover {
+  cursor: grab;
 }
