@@ -10,15 +10,96 @@ function getLines() {
   return gLines
 }
 
-function getActiveLine() {
-  return getLineById(gActiveLineId)
+function getActiveLineId() {
+  return gActiveLineId
 }
-function setActiveLineId(line) {
-  gActiveLineId = line.id
+
+function getActiveLineFromLines() {
+  return gLines.find((line) => line.id === gActiveLineId)
 }
 
 function getLineById(lineId) {
   return gLines.find((line) => line.id === lineId)
+}
+
+// UPDATE
+function setActiveLineId(line) {
+  gActiveLineId = line.id
+}
+
+function setActiveLineToLastLine() {
+  gActiveLineId = gLines.length ? gLines[gLines.length - 1].id : null
+}
+
+function updateLineText(lineId, text) {
+  const line = getLineById(lineId)
+  if (line) line.text = text
+}
+
+function updateLineFontSize(lineId, fontSize) {
+  const line = getLineById(lineId)
+  if (line) line.fontSize = fontSize
+}
+
+function updateLineAlignment(lineId, alignment) {
+  const line = getLineById(lineId)
+  if (line) line.alignment = alignment
+}
+
+function updateLineFontFamily(lineId, fontFamily) {
+  const line = getLineById(lineId)
+  if (line) line.fontFamily = fontFamily
+}
+
+function updateLineStrokeColor(lineId, color) {
+  const line = getLineById(lineId)
+  if (line) line.strokeColor = color
+}
+
+function updateLineFillColor(lineId, color) {
+  const line = getLineById(lineId)
+  if (line) line.fillColor = color
+}
+
+// DELETE
+function deleteLine(lineId) {
+  gLines = gLines.filter((line) => line.id !== lineId)
+  saveLinesState()
+}
+
+// CREATE
+function addLine() {
+  const editor = getEditor()
+  const lines = getLines()
+  const elCanvas = getElCanvas()
+  let pos = { x: 0, y: elCanvas.height / 2 }
+  if (lines.length === 0) pos = { x: 0, y: 0 }
+  if (lines.length === 1) pos = { x: 0, y: elCanvas.height - 20 }
+
+  const line = _createLine(pos)
+  console.log('line', line)
+
+  lines.push(line)
+}
+
+function createNewLine(pos) {
+  const newLine = {
+    id: makeId(5),
+    text: '',
+    fontSize: 20,
+    fontFamily: 'Arial',
+    strokeColor: '#000000',
+    fillColor: '#ffffff',
+    alignment: 'center',
+    pos,
+  }
+  gLines.push(newLine)
+  saveLinesState()
+  return newLine
+}
+
+function saveLinesState() {
+  saveToStorage(STORAGE_KEY_LINES, gLines)
 }
 
 function isLinesClicked(clickedPos) {
@@ -53,9 +134,19 @@ function getClickedLine(clickedPos) {
   console.log('getClickedLine', clickedPos)
 }
 
-function setLineDrag(isDrag) {
-  console.log('setLineDrag', isDrag)
-  ev.target.isDrag = isDrag //TODO:
+function setLineDrag(isDrag, lineId) {
+  //TODO:
+  const line = getLineById(lineId)
+  if (line) line.isDrag = isDrag
+}
+
+function moveLine(dx, dy) {
+  const line = getActiveLine()
+  if (line) {
+    line.pos.x += dx
+    line.pos.y += dy
+    renderCanvas()
+  }
 }
 
 // Move the line in a delta, diff from the pervious pos
@@ -64,34 +155,4 @@ function moveLine(dx, dy) {
   //TODO:
   line.pos.x += dx
   line.pos.y += dy
-}
-
-function updateLineText(lineId, text) {
-  getLineById(lineId).text = text
-} //TODO: mak updaters for all properties of line
-
-function addLine() {
-  const editor = getEditor()
-  const lines = getLines()
-  const elCanvas = getElCanvas()
-  let pos = { x: 0, y: elCanvas.height / 2 }
-  if (lines.length === 0) pos = { x: 0, y: 0 }
-  if (lines.length === 1) pos = { x: 0, y: elCanvas.height - 20 }
-
-  const line = _createLine(pos)
-  console.log('line', line)
-  line.data = lines.push(line)
-}
-
-function _createLine(pos) {
-  return (line = {
-    pos,
-    id: makeId(5),
-    type: 'text',
-    radius: 20,
-    color: 'blue',
-    isDrag: false,
-    gStartPos: pos,
-    data: '',
-  })
 }
