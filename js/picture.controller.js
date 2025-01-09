@@ -1,21 +1,98 @@
 // js/picture.controller.js
 'use strict'
 
-function renderPics(isSaved = false) {
-  const pics = isSaved ? getSavedPics() : getPics()
+function onInitPictures() {
+  renderPics()
+  renderSavedPics()
+}
+
+function renderPics() {
+  const pics = getPics()
+
+  if (!pics) return
 
   const strHTMLs = pics
-    .map((pic) => {
+    .map((pic, idx) => {
+      return `
+          <article class="card card-pic">
+            <div class="pic-holder">
+              <img src="${pic.url}" alt="${idx + 1}" />
+            </div>
+            <div class="pic-btns flex f-ai-center gap-1">
+              <button 
+              type="button" 
+              data-idx="${idx}" 
+              data-id="${pic.id}" 
+              class="btn btn-display" 
+              onclick="onSelectPic(event)">
+                Display
+              </button>
+              <button 
+              type="button" 
+              data-idx="${idx}" 
+              data-id="${pic.id}" 
+              class="btn btn-remove" 
+              onclick="onRemovePic(event)">
+                Remove
+              </button>
+            </div>
+          </article>`
+    })
+    .join('')
+
+  const elPicsGrid = document.querySelector('section.pics-gallery .pics-grid')
+  elPicsGrid.innerHTML = ''
+  elPicsGrid.innerHTML = strHTMLs
+}
+
+function onUploadPic(event) {
+  addPic(picId) //TODO:
+  renderPics()
+}
+
+function onRemovePic(ev) {
+  removePic(ev.target.dataset.id)
+  renderPics()
+}
+
+function onSelectPic(ev) {
+  const pic = getPicById(ev.target.dataset.id)
+
+  let image = new Image()
+  const srcStr = pic.url
+  image.src = srcStr
+  image.onload = function () {
+    renderMeme(image)
+  }
+}
+
+///////////////////////////////////////////////
+
+function renderSavedPics() {
+  const pics = getSavedPics()
+
+  const strHTMLs = pics
+    .map((pic, idx) => {
       return `
           <div class="pic-display">
             <div class="pic-container">
-              <canvas width="220" height="220" data-id="${pic.picID}"></canvas>
+              <canvas width="220" height="220" data-id="${pic.id}"></canvas>
             </div>
-            <div class="pic-btns flex align-center gap-1">
-              <button type="button" data-id="${pic.picID}" class="btn btn-display" onclick="onSelectPic('${pic.picID}')">
+            <div class="pic-btns flex f-ai-center gap-1">
+              <button type="button" 
+                data-idx="${idx}" 
+                data-id="${pic.id}" 
+                class="btn btn-display" 
+                onclick="onSelectSavedPic('${pic.id}')"
+              >
                 Display
               </button>
-              <button type="button" data-id="${pic.picID}" class="btn btn-remove" onclick="onRemovePic('${pic.picID}')">
+              <button type="button" 
+              data-idx="${idx}" 
+              data-id="${pic.id}" 
+              class="btn btn-remove" 
+              onclick="onRemoveSavedPic('${pic.id}')"
+              >
                 Remove
               </button>
             </div>
@@ -23,8 +100,8 @@ function renderPics(isSaved = false) {
     })
     .join('')
 
-  const selector = isSaved ? 'section.saved' : 'section.pics-gallery'
-  const elPicsGrid = document.querySelector(`${selector} .pics-grid`)
+  const elPicsGrid = document.querySelector('section.saved .pics-grid')
+  elPicsGrid.innerHTML = ''
   elPicsGrid.innerHTML = strHTMLs
 
   pics.forEach((pic) => {
@@ -40,25 +117,26 @@ function renderPics(isSaved = false) {
   })
 }
 
-function onSavePic() {
-  const dataUrl = gElCanvas.toDataURL()
-  addPic(dataUrl)
-  renderPics()
+function onSaveMeme(ev) {
+  ev.preventDefault()
+  const elCanvas = getElCanvas()
+  const dataUrl = elCanvas.toDataURL()
+  addSavedPic(dataUrl)
+  renderSavedPics()
 }
 
-function onRemovePic(picId) {
-  removePic(picId)
-  renderPics()
+function onRemoveSavedPic(picId) {
+  removeSavedPic(picId)
+  renderSavedPics()
 }
 
-function onSelectPic(picId) {
-  const pic = getPicById(picId)
+function onSelectSavedPic(picId) {
+  const pic = getSavedPicById(picId)
   const dataUrl = pic.data
 
   let image = new Image()
   image.onload = function () {
-    renderImg(image)
+    renderMeme(image)
   }
   image.src = dataUrl
-  renderImg(image)
 }
