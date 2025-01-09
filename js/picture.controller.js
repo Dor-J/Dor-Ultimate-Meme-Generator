@@ -48,9 +48,7 @@ function renderPics() {
 
 // UPLOAD NEW PIC
 function onUploadPic(ev) {
-  //TODO:
   onImgInput(ev)
-  addSavedPic()
   renderSavedPics()
 }
 
@@ -68,6 +66,7 @@ function onSelectPic(ev) {
   const srcStr = pic.url
   image.src = srcStr
   image.onload = function () {
+    setCurrentImage(image)
     renderMeme(image)
   }
 }
@@ -135,6 +134,7 @@ function onSelectSavedPic(picId) {
 
   let image = new Image()
   image.onload = function () {
+    setCurrentImage(image)
     renderMeme(image)
   }
   image.src = dataUrl

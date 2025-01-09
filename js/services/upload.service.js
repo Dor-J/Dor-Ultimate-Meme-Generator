@@ -3,7 +3,15 @@
 
 //IMAGE INPUT
 function onImgInput(ev) {
-  loadImageFromInput(ev, renderMeme)
+  loadImageFromInput(ev, (img) => {
+    // render  meme
+    renderMeme(img)
+
+    const elCanvas = getElCanvas()
+    const dataUrl = elCanvas.toDataURL('image/jpeg')
+
+    addSavedPic(dataUrl)
+  })
 }
 
 function loadImageFromInput(ev, onImageReady) {
