@@ -11,7 +11,6 @@ function onChangeText(elTextInput) {
 }
 
 function onSwitchLine() {
-  // TODO:
   switchToNextLine()
   renderCanvas()
 }

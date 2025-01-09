@@ -35,8 +35,15 @@ function switchToNextLine() {
   if (!lines.length) return
 
   const currentIndex = lines.findIndex((line) => line.id === getActiveLineId())
+  if (currentIndex === -1) {
+    gEditor.activeLineId = lines[0].id
+    updateEditorStateFromLine(lines[0])
+    saveEditorState()
+    return
+  }
   const nextIndex = (currentIndex + 1) % lines.length
-  gEditor.activeLineId = lines[nextIndex].id
+  setActiveLineId(lines[nextIndex])
+
   updateEditorStateFromLine(lines[nextIndex])
   saveEditorState()
 }
