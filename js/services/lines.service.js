@@ -103,39 +103,24 @@ function saveLinesState() {
 }
 
 function isLinesClicked(clickedPos) {
-  let isLinesClicked = false
-
-  if (gLines.length === 0) return
-
-  //regular for loop because i want to exit early if i find a line
-  for (const line of gLines) {
+  return gLines.some((line) => {
     const { pos } = line
+
     if (line.type === 'circle') {
-      // Calc the distance between two dots
       const distance = Math.sqrt(
         (pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2
       )
-      //If its smaller then the radius of the circle we are inside
-      isLinesClicked = distance <= line.size
-      if (isLinesClicked) return true
+      return distance <= line.size
     }
 
-    //If its text
-    const distanceX = pos.x - clickedPos.x
-    const distanceY = pos.y - clickedPos.y
-    isLinesClicked = distanceX <= line.pos.x && distanceY <= line.pos.y
-    if (isLinesClicked) return true
-  }
-
-  return isLinesClicked
-}
-
-function getClickedLine(clickedPos) {
-  console.log('getClickedLine', clickedPos)
+    // Text-based line
+    const distanceX = Math.abs(pos.x - clickedPos.x)
+    const distanceY = Math.abs(pos.y - clickedPos.y)
+    return distanceX <= line.width / 2 && distanceY <= line.height / 2
+  })
 }
 
 function setLineDrag(isDrag, lineId) {
-  //TODO:
   const line = getLineById(lineId)
   if (line) line.isDrag = isDrag
 }
@@ -145,6 +130,7 @@ function moveLine(dx, dy) {
   if (line) {
     line.pos.x += dx
     line.pos.y += dy
+    saveLinesState()
     renderCanvas()
   }
 }
