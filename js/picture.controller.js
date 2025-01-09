@@ -16,10 +16,10 @@ function renderPics() {
     .map((pic, idx) => {
       return `
           <article class="card card-pic">
-            <div class="pic-holder">
+            <div class="pic-holder ma-bl-en-05">
               <img src="${pic.url}" alt="${idx + 1}" />
             </div>
-            <div class="pic-btns flex f-ai-center gap-1">
+            <div class="pic-btns flex f-ai-center f-jc-center f-gap-05">
               <button 
               type="button" 
               data-idx="${idx}" 
@@ -82,10 +82,10 @@ function renderSavedPics() {
     .map((pic, idx) => {
       return `
           <div class="pic-display">
-            <div class="pic-container">
+            <div class="pic-container grid g-pi-center ma-bl-en-05">
               <canvas width="220" height="220" data-id="${pic.id}"></canvas>
             </div>
-            <div class="pic-btns flex f-ai-center gap-1">
+            <div class="pic-btns flex f-ai-center f-jc-center f-gap-05">
               <button type="button" 
                 data-idx="${idx}" 
                 data-id="${pic.id}" 
