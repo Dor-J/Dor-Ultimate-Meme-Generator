@@ -16,7 +16,8 @@ function addNewLine() {
   const elCanvas = getElCanvas()
   const defaultPos = { x: elCanvas.width / 2, y: elCanvas.height / 2 }
   const newLine = createNewLine(defaultPos)
-  setActiveLine(newLine.id)
+  gEditor.activeLineId = newLine.id
+  updateEditorStateFromLine(newLine)
   saveEditorState()
 }
 
@@ -35,7 +36,8 @@ function switchToNextLine() {
 
   const currentIndex = lines.findIndex((line) => line.id === getActiveLineId())
   const nextIndex = (currentIndex + 1) % lines.length
-  setActiveLine(lines[nextIndex].id)
+  gEditor.activeLineId = lines[nextIndex].id
+  updateEditorStateFromLine(lines[nextIndex])
   saveEditorState()
 }
 
@@ -43,6 +45,7 @@ function updateActiveLineText(text) {
   const activeLine = getActiveLine()
   if (activeLine) {
     updateLineText(activeLine.id, text)
+    gEditor.text = text
     saveEditorState()
   }
 }
@@ -56,10 +59,21 @@ function updateActiveLineFontSize(diff) {
   }
 }
 
+function updateActiveLineFontSize(diff) {
+  const activeLine = getActiveLine()
+  if (activeLine) {
+    const newFontSize = Math.max(1, activeLine.fontSize + diff)
+    updateLineFontSize(activeLine.id, newFontSize)
+    gEditor.fontSize = newFontSize
+    saveEditorState()
+  }
+}
+
 function updateActiveLineAlignment(alignment) {
   const activeLine = getActiveLine()
   if (activeLine) {
     updateLineAlignment(activeLine.id, alignment)
+    gEditor.alignment = alignment
     saveEditorState()
   }
 }
@@ -68,6 +82,7 @@ function updateActiveLineFont(fontFamily) {
   const activeLine = getActiveLine()
   if (activeLine) {
     updateLineFontFamily(activeLine.id, fontFamily)
+    gEditor.fontFamily = fontFamily
     saveEditorState()
   }
 }
@@ -76,6 +91,7 @@ function updateActiveLineStrokeColor(color) {
   const activeLine = getActiveLine()
   if (activeLine) {
     updateLineStrokeColor(activeLine.id, color)
+    gEditor.strokeColor = color
     saveEditorState()
   }
 }
@@ -84,30 +100,58 @@ function updateActiveLineFillColor(color) {
   const activeLine = getActiveLine()
   if (activeLine) {
     updateLineFillColor(activeLine.id, color)
+    gEditor.fillColor = color
     saveEditorState()
   }
 }
 
-function setEditorColor(color = '#000000') {
-  gEditor.color = color
+function setActiveLineToLastLine() {
+  const lines = getLines()
+  gEditor.activeLineId = lines.length ? lines[lines.length - 1].id : null
+  if (gEditor.activeLineId) {
+    updateEditorStateFromLine(getLineById(gEditor.activeLineId))
+  } else {
+    resetEditorState()
+  }
+  saveEditorState()
 }
 
-function setEditorRadius(radius = 5) {
-  gEditor.radius = radius
+function resetEditorState() {
+  gEditor = {
+    ...gEditor,
+    text: '',
+    fontSize: 20,
+    fontFamily: 'Arial',
+    strokeColor: '#000000',
+    fillColor: '#FFFFFF',
+    alignment: 'center',
+    activeLineId: null,
+  }
+}
+
+function updateEditorStateFromLine(line) {
+  gEditor = {
+    ...gEditor,
+    text: line.text,
+    fontSize: line.fontSize,
+    fontFamily: line.fontFamily,
+    strokeColor: line.strokeColor,
+    fillColor: line.fillColor,
+    alignment: line.alignment,
+  }
 }
 
 function _createEditor() {
   return {
-    text: '',
-    fontSize: 5,
-    radius: 5,
-    fontFamily: 'ariel',
-    strokeColor: '',
-    fillColor: '',
-    lines: [],
+    // Defaults
+    text: 'example text',
+    fontSize: 20,
+    fontFamily: 'Arial',
+    strokeColor: '#000000',
+    fillColor: '#FFFFFF',
+    alignment: 'center',
     activeLineId: null,
-
-    //TODO: finish all parameters
+    lines: [],
   }
 }
 
