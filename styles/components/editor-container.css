@@ -4,10 +4,24 @@
 }
 
 .editor-container .editor {
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: auto-fit;
   grid-auto-flow: row;
 }
 .editor-container .editor > .full {
   grid-column: 1/-1;
+}
+
+.editor-container .editor .text-input-container {
+  grid-template-rows: 1fr;
+
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.editor-container .editor .text-input-container .meme-text-input {
+  width: 100%;
+  min-height: 30px;
+  text-align: left;
 }
