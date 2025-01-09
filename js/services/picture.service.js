@@ -40,6 +40,7 @@ function removePic(picId) {
   _savePicsToStorage()
 }
 
+//GET PICs BY KEYWORDS
 function getAllUniqueKeywords() {
   const allKeywords = gPictures.reduce((acc, pic) => {
     const currKeywords = pic.keywords
@@ -60,6 +61,7 @@ function getKeywordCountMap() {
   return keywordCountMap
 }
 
+//CREATE SAMPLE PICs
 function _createPics() {
   const pics = []
 
@@ -91,8 +93,9 @@ function _createPics() {
   return pics
 }
 
+//CREATE SAMPLE PICs
 function _createPic(url, ...keywords) {
-  return { id: makeId(6), url, keywords }
+  return { id: makeId(6), url, keywords, type: 'image' }
 }
 
 function _savePicsToStorage() {

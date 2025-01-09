@@ -5,6 +5,7 @@ const STORAGE_KEY_LINES = 'linesStateDB'
 var gLines = loadFromStorage(STORAGE_KEY_LINES) || []
 var gActiveLineId = null
 
+//GET
 function getLines() {
   return gLines
 }

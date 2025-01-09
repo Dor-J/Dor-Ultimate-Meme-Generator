@@ -28,6 +28,6 @@ function _createEditor() {
     strokeColor: '',
     fillColor: '',
 
-    //TODO: finish up
+    //TODO: finish all parameters
   }
 }

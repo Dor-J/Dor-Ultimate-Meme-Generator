@@ -6,6 +6,7 @@ function onInitPictures() {
   renderSavedPics()
 }
 
+// RENDER PICs
 function renderPics() {
   const pics = getPics()
 
@@ -45,16 +46,21 @@ function renderPics() {
   elPicsGrid.innerHTML = strHTMLs
 }
 
-function onUploadPic(event) {
-  addPic(picId) //TODO:
-  renderPics()
+// UPLOAD NEW PIC
+function onUploadPic(ev) {
+  //TODO:
+  onImgInput(ev)
+  addSavedPic()
+  renderSavedPics()
 }
 
+// REMOVE PIC
 function onRemovePic(ev) {
   removePic(ev.target.dataset.id)
   renderPics()
 }
 
+// SELECTED PIC TO CANVAS
 function onSelectPic(ev) {
   const pic = getPicById(ev.target.dataset.id)
 
@@ -68,6 +74,7 @@ function onSelectPic(ev) {
 
 ///////////////////////////////////////////////
 
+// RENDER SAVED PICs
 function renderSavedPics() {
   const pics = getSavedPics()
 

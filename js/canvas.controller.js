@@ -9,7 +9,7 @@ function onResize() {
   const elContainer = document.querySelector('.canvas-container')
   const elCanvas = getElCanvas()
 
-  elCanvas.width = elContainer.clientWidth - 2
+  elCanvas.width = elContainer.clientWidth
 }
 
 function renderMeme(img) {
@@ -26,6 +26,7 @@ function onClearCanvas() {
   ctx.clearRect(0, 0, elCanvas.width, elCanvas.height)
 }
 
+// CANVAS INTERACTIONS
 function onDown(ev) {
   console.log('onDown')
   document.body.style.cursor = 'grabbing'
@@ -62,8 +63,6 @@ function onUp(ev) {
 }
 
 function renderCanvas() {
-  console.log('renderCanvas active')
-
   renderLines()
 }
 
@@ -86,6 +85,7 @@ function renderLine(line) {
   drawText(data, pos.x, pos.y)
 }
 
+// DRAW FUNCTIONS
 function drawArc(x, y, radius = 60, color = 'blue') {
   //TODO:
   gCtx.beginPath()
@@ -113,6 +113,7 @@ function drawText(x, y) {
   ctx.strokeText(text, x, y)
 }
 
+// GET POSITION
 function getEvPos(ev) {
   const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
