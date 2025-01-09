@@ -28,36 +28,39 @@ function onClearCanvas() {
 
 // CANVAS INTERACTIONS
 function onDown(ev) {
-  console.log('onDown')
+  const pos = getEvPos(ev)
+  if (!isLinesClicked(pos)) return
+
+  const line = getClickedLine(pos)
+  if (!line) return
+
+  setLineDrag(true, line.id)
+  line.gStartPos = pos
   document.body.style.cursor = 'grabbing'
-  //TODO:
 }
 
 function onMove(ev) {
   console.log('onMove')
 
-  // ev.target is the canvas
   const pos = getEvPos(ev)
-  if (!isLinesClicked(pos)) return
+  const line = getActiveLine()
 
-  //get line by id
-  const line = getClickedLine(pos)
+  if (!line || !line.isDrag) return
 
   const dx = pos.x - line.gStartPos.x
   const dy = pos.y - line.gStartPos.y
 
-  setLineDrag(ev.target, true)
+  moveLine(dx, dy)
 
-  line.gStartPos.x = pos.x
-  line.gStartPos.y = pos.y
-  // const editor = getEditor()
-  document.body.style.cursor = 'grab'
+  line.gStartPos = pos // Update start position
+  renderCanvas()
 }
 
 function onUp(ev) {
   console.log('onUp')
 
-  // setLineDrag(false)
+  const line = getActiveLine()
+  if (line) setLineDrag(false, line.id)
 
   document.body.style.cursor = 'default'
 }
