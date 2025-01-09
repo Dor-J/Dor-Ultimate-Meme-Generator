@@ -27,6 +27,8 @@ function renderMeme(img) {
 
   elCanvas.height = (img.naturalHeight / img.naturalWidth) * elCanvas.width
   ctx.drawImage(img, 0, 0, elCanvas.width, elCanvas.height)
+
+  renderCanvas()
 }
 
 function onClearCanvas() {
@@ -111,7 +113,7 @@ function renderLine(line, ctx) {
   if (type === 'text') {
     //getting text width and height
     const textWidth = ctx.measureText(text).width
-    const textHeight = fontSize
+    const textHeight = fontSize * 1.2
     line.width = textWidth
     line.height = textHeight
 
@@ -122,8 +124,8 @@ function renderLine(line, ctx) {
     ctx.strokeStyle = strokeColor
     ctx.textAlign = alignment
     ctx.textBaseline = 'middle'
-    ctx.fillText(text, pos.x, pos.y)
-    ctx.strokeText(text, pos.x, pos.y)
+
+    wrapText(ctx, text, pos.x, pos.y, textHeight, alignment)
   } else if (type === 'circle') {
     // Draw emoji/icon as circle
     ctx.beginPath()
@@ -133,6 +135,34 @@ function renderLine(line, ctx) {
     ctx.fill()
     ctx.stroke()
   }
+}
+
+function wrapText(ctx, text, x, y, lineHeight, alignment = 'center') {
+  const elCanvas = getElCanvas()
+  const maxWidth = elCanvas.width * 0.9
+  const words = text.split(' ')
+  let line = ''
+  let currentY = y //current line's y position
+
+  for (let i = 0; i < words.length; i++) {
+    const testLine = line + words[i] + ' '
+    const testWidth = ctx.measureText(testLine).width
+
+    if (testWidth > maxWidth && i > 0) {
+      drawTextLine(ctx, line, x, currentY, alignment)
+      line = words[i] + ' '
+      currentY += lineHeight
+    } else {
+      line = testLine
+    }
+  }
+
+  if (line) drawTextLine(ctx, line, x, currentY, alignment)
+}
+
+function drawTextLine(ctx, line, x, y, alignment) {
+  ctx.fillText(line, x, y)
+  ctx.strokeText(line, x, y)
 }
 
 function onResizeEmoji(diff) {
