@@ -148,11 +148,3 @@ function moveLine(dx, dy) {
     renderCanvas()
   }
 }
-
-// Move the line in a delta, diff from the pervious pos
-function moveLine(dx, dy) {
-  console.log('moveLine', 'dx', dx, 'dy', dy)
-  //TODO:
-  line.pos.x += dx
-  line.pos.y += dy
-}
