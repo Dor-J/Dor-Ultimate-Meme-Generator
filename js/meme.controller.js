@@ -6,6 +6,7 @@ function onInit() {
   onInitCanvas()
   onInitPictures()
   addEventListeners()
+  onResize()
 }
 
 function onToggleMenu() {
