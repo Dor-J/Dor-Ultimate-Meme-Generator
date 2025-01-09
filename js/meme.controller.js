@@ -2,7 +2,6 @@
 'use strict'
 
 function onInit() {
-  console.log('Starting meme generator')
   onInitCanvas()
   onInitPictures()
   addEventListeners()

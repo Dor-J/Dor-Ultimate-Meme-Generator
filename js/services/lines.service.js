@@ -1,8 +1,7 @@
 // js/services/lines.service.js
 'use strict'
 
-const STORAGE_KEY_LINES = 'linesStateDB'
-var gLines = loadFromStorage(STORAGE_KEY_LINES) || []
+var gLines = []
 var gActiveLineId = null
 
 //GET
@@ -64,14 +63,13 @@ function updateLineFillColor(lineId, color) {
 // DELETE
 function deleteLine(lineId) {
   gLines = gLines.filter((line) => line.id !== lineId)
-  saveLinesState()
 }
 
 // CREATE
 function createNewLine(pos, type = 'text', content = '') {
   const newLine = {
     id: makeId(5),
-    text: type === 'text' ? content : '',
+    text: type !== 'text' ? content : 'An apple a day, keeps microsoft away',
     type,
     fontSize: 20,
     fontFamily: 'Arial',
@@ -83,12 +81,7 @@ function createNewLine(pos, type = 'text', content = '') {
     isDrag: false,
   }
   gLines.push(newLine)
-  saveLinesState()
   return newLine
-}
-
-function saveLinesState() {
-  saveToStorage(STORAGE_KEY_LINES, gLines)
 }
 
 // INTERACTION
@@ -120,7 +113,6 @@ function moveLine(dx, dy) {
   if (line) {
     line.pos.x += dx
     line.pos.y += dy
-    saveLinesState()
     renderCanvas()
   }
 }
@@ -137,4 +129,20 @@ function addDefaultLine() {
     // add others center
     createNewLine({ x: elCanvas.width / 2, y: elCanvas.height / 2 })
   }
+}
+
+function getClickedLine(clickedPos) {
+  return gLines.find((line) => {
+    if (line.type === 'circle') {
+      const distance = Math.sqrt(
+        (line.pos.x - clickedPos.x) ** 2 + (line.pos.y - clickedPos.y) ** 2
+      )
+      return distance <= line.size
+    } else {
+      // For text
+      const distanceX = Math.abs(line.pos.x - clickedPos.x)
+      const distanceY = Math.abs(line.pos.y - clickedPos.y)
+      return distanceX <= line.width / 2 && distanceY <= line.height / 2
+    }
+  })
 }

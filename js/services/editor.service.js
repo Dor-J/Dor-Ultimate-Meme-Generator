@@ -121,6 +121,8 @@ function resetEditorState() {
 }
 
 function updateEditorStateFromLine(line) {
+  console.log('updateEditorStateFromLine was called!')
+  console.log('line', line)
   gEditor = {
     ...gEditor,
     text: line.text,
