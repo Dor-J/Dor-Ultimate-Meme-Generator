@@ -8,7 +8,16 @@ function onInitCanvas() {
 function onResize() {
   const elContainer = document.querySelector('.canvas-container')
   const elCanvas = getElCanvas()
-  elCanvas.width = elContainer.clientWidth + 'px'
+
+  elCanvas.width = elContainer.clientWidth - 2
+}
+
+function renderMeme(img) {
+  const elCanvas = getElCanvas()
+  const ctx = getCtx()
+
+  elCanvas.height = (img.naturalHeight / img.naturalWidth) * elCanvas.width
+  ctx.drawImage(img, 0, 0, elCanvas.width, elCanvas.height)
 }
 
 function onClearCanvas() {

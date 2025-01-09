@@ -43,14 +43,6 @@ function loadImageFromInput(ev, onImageReady) {
   reader.readAsDataURL(ev.target.files[0])
 }
 
-function renderMeme(img) {
-  const elCanvas = getElCanvas()
-  const ctx = getCtx()
-
-  elCanvas.height = (img.naturalHeight / img.naturalWidth) * elCanvas.width
-  ctx.drawImage(img, 0, 0, elCanvas.width, elCanvas.height)
-}
-
 function onUploadMeme(ev) {
   ev.preventDefault()
   const elCanvas = getElCanvas()
