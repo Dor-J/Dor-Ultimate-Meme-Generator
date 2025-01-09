@@ -10,11 +10,20 @@ function onResize() {
   const elCanvas = getElCanvas()
 
   elCanvas.width = elContainer.clientWidth
+
+  const img = getCurrentImage()
+  if (img) {
+    elCanvas.height = (img.naturalHeight / img.naturalWidth) * elCanvas.width
+  }
 }
 
 function renderMeme(img) {
   const elCanvas = getElCanvas()
   const ctx = getCtx()
+
+  if (!getLines().length) {
+    addDefaultLine()
+  }
 
   elCanvas.height = (img.naturalHeight / img.naturalWidth) * elCanvas.width
   ctx.drawImage(img, 0, 0, elCanvas.width, elCanvas.height)
@@ -34,14 +43,13 @@ function onDown(ev) {
   const line = getClickedLine(pos)
   if (!line) return
 
+  setActiveLineId(line)
   setLineDrag(true, line.id)
   line.gStartPos = pos
   document.body.style.cursor = 'grabbing'
 }
 
 function onMove(ev) {
-  console.log('onMove')
-
   const pos = getEvPos(ev)
   const line = getActiveLine()
 
@@ -52,13 +60,11 @@ function onMove(ev) {
 
   moveLine(dx, dy)
 
-  line.gStartPos = pos // Update start position
+  line.gStartPos = pos
   renderCanvas()
 }
 
 function onUp(ev) {
-  console.log('onUp')
-
   const line = getActiveLine()
   if (line) setLineDrag(false, line.id)
 
@@ -73,7 +79,7 @@ function renderCanvas() {
   ctx.clearRect(0, 0, elCanvas.width, elCanvas.height)
 
   // draw background image
-  const img = getCurrentMemeImage() // Implement this function to get the current image
+  const img = getCurrentImage()
   if (img) {
     ctx.drawImage(img, 0, 0, elCanvas.width, elCanvas.height)
   }
@@ -99,15 +105,22 @@ function renderLine(line, ctx) {
     text,
     size,
     type,
+    alignment,
   } = line
 
   if (type === 'text') {
+    //getting text width and height
+    const textWidth = ctx.measureText(text).width
+    const textHeight = fontSize
+    line.width = textWidth
+    line.height = textHeight
+
     // Draw text
     ctx.beginPath()
     ctx.font = `${fontSize}px ${fontFamily}`
     ctx.fillStyle = fillColor
     ctx.strokeStyle = strokeColor
-    ctx.textAlign = 'center'
+    ctx.textAlign = alignment
     ctx.textBaseline = 'middle'
     ctx.fillText(text, pos.x, pos.y)
     ctx.strokeText(text, pos.x, pos.y)
@@ -119,6 +132,14 @@ function renderLine(line, ctx) {
     ctx.strokeStyle = strokeColor
     ctx.fill()
     ctx.stroke()
+  }
+}
+
+function onResizeEmoji(diff) {
+  const line = getActiveLine()
+  if (line && line.type === 'circle') {
+    line.size = Math.max(10, line.size + diff) // min size set 10
+    renderCanvas()
   }
 }
 
