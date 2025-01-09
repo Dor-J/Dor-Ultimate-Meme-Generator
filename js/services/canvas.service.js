@@ -5,7 +5,6 @@ var gElCanvas = null
 var gCtx = null
 
 function setCanvas() {
-  console.log('setCanvas activated')
   gElCanvas = document.querySelector('canvas')
   gCtx = gElCanvas.getContext('2d')
 }

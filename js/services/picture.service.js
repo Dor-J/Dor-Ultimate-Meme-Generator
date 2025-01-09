@@ -57,7 +57,6 @@ function getKeywordCountMap() {
     })
     return acc
   }, {})
-  console.log(allKeywords)
   return keywordCountMap
 }
 
