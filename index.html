@@ -142,6 +142,7 @@
                   id="meme-text-input"
                   class="meme-text-input"
                   placeholder="Add Text Here"
+                  onchange="onChangeText(this)"
                   oninput="onAddTxt(this)"
                 />
               </div>
@@ -216,7 +217,7 @@
                   href="#"
                   data-trans="save"
                   class="btn btn-save"
-                  onclick="onSaveMeme()"
+                  onclick="onSaveMeme(event)"
                   >Save</a
                 >
                 <a
@@ -224,13 +225,14 @@
                   data-trans="download"
                   class="btn btn-download"
                   onclick="onDownloadMeme(this)"
+                  download="Download meme"
                   >Download</a
                 >
                 <a
                   href="#"
                   data-trans="share"
                   class="btn btn-share"
-                  onclick="onShareMeme()"
+                  onclick="onShareMeme(event)"
                   >Share</a
                 >
               </div>
