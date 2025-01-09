@@ -42,6 +42,30 @@
         <div class="section-header">
           <h2>Pictures gallery</h2>
         </div>
+        <div class="picture-filter grid">
+          <form
+            onsubmit="event.preventDefault();console.log('hi from onsubmit');"
+            class="picture-search flex f-ai-center f-gap-1 f-wrap"
+          >
+            <label for="meme-search">Search memes</label>
+            <input
+              type="search"
+              name="meme-search"
+              id="meme-search"
+              onchange="(event)=>{event.preventDefault();console.log('hi from search');}"
+            />
+            <input
+              type="submit"
+              value="Submit"
+              oncclick="(event)=>{event.preventDefault();console.log('hi from Submit');}"
+            />
+            <input type="reset" value="Reset" />
+          </form>
+          <div class="keywords-search flex f-ai-center f-gap-1 f-wrap">
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+        </div>
+
         <div class="pics-grid">
           <article class="card card-pic">
             <div class="pic-holder">
