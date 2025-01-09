@@ -1,25 +1,15 @@
 // js/editor.controller.js
 'use strict'
 
-function onAddTxt(elTextInput) {
-  // TODO:
+function onChangeText(elTextInput) {
   const text = elTextInput.value.trim()
   if (!text) return
-
-  if (!getActiveLine()) onAddLine()
-  updateActiveLineText(text)
-
-  renderCanvas()
-}
-
-function onChangeText(elTextInput) {
-  // TODO:
-  const text = elTextInput.value
   if (getActiveLine()) {
     updateActiveLineText(text)
     renderCanvas()
   }
 }
+
 function onSwitchLine() {
   // TODO:
   switchToNextLine()
@@ -43,6 +33,7 @@ function onUpdateLineSize(diff) {
     renderCanvas()
   }
 }
+
 function onSetAlignment(alignment) {
   //alignment: left, center, right, justify
   if (getActiveLine()) {
@@ -50,18 +41,21 @@ function onSetAlignment(alignment) {
     renderCanvas()
   }
 }
+
 function onSetFont(elFontPicker) {
   if (getActiveLine()) {
     updateActiveLineFont(elFontPicker.value)
     renderCanvas()
   }
 }
+
 function onSetStrokeStyle(elStrokeColorInput) {
   if (getActiveLine()) {
     updateActiveLineStrokeColor(elStrokeColorInput.value)
     renderCanvas()
   }
 }
+
 function onSetFillStyle(elFillColorInput) {
   if (getActiveLine()) {
     updateActiveLineFillColor(elFillColorInput.value)
