@@ -135,8 +135,14 @@
 
           <div class="editor-container pa-05">
             <div class="editor grid grid-gap-1">
-              <div class="text-input-container full flex-col">
-                <label for="meme-text-input">Enter text:</label>
+              <div class="text-input-container full grid">
+                <label for="meme-text-input"
+                  >Enter text:
+                  <img
+                    class="icon icon-keyboard"
+                    src="images/svgs/keyboard.svg"
+                    alt="keyboard icon"
+                /></label>
                 <input
                   type="text"
                   id="meme-text-input"
@@ -145,41 +151,125 @@
                   oninput="onChangeText(this)"
                 />
               </div>
-              <div class="input-editors-container full">
+              <div
+                class="input-editors-container full grid editor-tooling-grid"
+              >
                 <button
                   onclick="onSwitchLine()"
                   class="btn-editor btn-switch-inputs"
                 >
-                  switch-inputs
+                  <img
+                    class="icon icon-repeat"
+                    src="images/svgs/repeat.svg"
+                    alt="repeat icon"
+                  />
                 </button>
-                <button onclick="onAddLine()" class="btn-editor btn-add-input">
-                  add-input
+                <button
+                  onclick="onAddLine()"
+                  class="btn-editor btn-add-input"
+                  aria-label="add new line button"
+                >
+                  <img
+                    class="icon icon-square-plus"
+                    src="images/svgs/square-plus.svg"
+                    alt="square-plus-can icon"
+                  />
                 </button>
                 <button
                   onclick="onDeleteLine()"
                   class="btn-editor btn-delete-input"
+                  aria-label="delete line button"
                 >
-                  delete-input
+                  <img
+                    class="icon icon-trash-can"
+                    src="images/svgs/trash-can.svg"
+                    alt="trash-can icon"
+                  />
                 </button>
               </div>
 
-              <div class="font-editors-container full">
-                <button class="btn-font" onclick="onUpdateLineSize(1)">
-                  font-size-up
+              <div class="font-editors-container full grid editor-tooling-grid">
+                <button
+                  class="btn-font"
+                  onclick="onUpdateLineSize(1)"
+                  aria-label="increace font size button"
+                >
+                  <img
+                    class="icon icon-font"
+                    src="images/svgs/font.svg"
+                    alt="font icon"
+                  />
+                  <img
+                    class="icon icon-plus"
+                    src="images/svgs/plus.svg"
+                    alt="plus icon"
+                  />
                 </button>
-                <button class="btn-font" onclick="onUpdateLineSize(-1)">
-                  font-size-down
+                <button
+                  class="btn-font"
+                  onclick="onUpdateLineSize(-1)"
+                  aria-label="decreace font size button"
+                >
+                  <img
+                    class="icon icon-font"
+                    src="images/svgs/font.svg"
+                    alt="font icon"
+                  />
+                  <img
+                    class="icon icon-minus"
+                    src="images/svgs/minus.svg"
+                    alt="minus icon"
+                  />
                 </button>
-                <button class="btn-font" onclick="onSetAlignment('left')">
-                  align-left
+                <button
+                  class="btn-font"
+                  onclick="onSetAlignment('left')"
+                  aria-label="align font left button"
+                >
+                  <img
+                    class="icon icon-align-left"
+                    src="images/svgs/align-left.svg"
+                    alt="align-left icon"
+                  />
                 </button>
-                <button class="btn-font" onclick="onSetAlignment('center')">
-                  align-center
+                <button
+                  class="btn-font"
+                  onclick="onSetAlignment('center')"
+                  aria-label="align font center button"
+                >
+                  <img
+                    class="icon icon-align-center"
+                    src="images/svgs/align-center.svg"
+                    alt="align-center icon"
+                  />
                 </button>
-                <button class="btn-font" onclick="onSetAlignment('right')">
-                  align-right
+                <button
+                  class="btn-font"
+                  onclick="onSetAlignment('right')"
+                  aria-label="align font right button"
+                >
+                  <img
+                    class="icon icon-align-right"
+                    src="images/svgs/align-right.svg"
+                    alt="align-right icon"
+                  />
                 </button>
-                <select class="font-picker" onchange="onSetFont(this)">
+                <button
+                  class="btn-font"
+                  onclick="onSetAlignment('justify')"
+                  aria-label="align font justify button"
+                >
+                  <img
+                    class="icon icon-align-justify"
+                    src="images/svgs/align-justify.svg"
+                    alt="align-justify icon"
+                  />
+                </button>
+                <select
+                  class="font-picker"
+                  onchange="onSetFont(this)"
+                  aria-label="font family selector"
+                >
                   <option value="times new roman">TIMES NEW ROMAN</option>
                   <option value="arial">ARIAL</option>
                   <option value="verdana">VERDANA</option>
@@ -192,7 +282,13 @@
                 <button
                   class="btn-font stroke-color-icon color-picker"
                   style="color: rgb(23, 180, 20)"
+                  aria-label="stroke color selector"
                 >
+                  <img
+                    class="icon icon-palette"
+                    src="images/svgs/palette.svg"
+                    alt="palette icon"
+                  />
                   <input
                     type="color"
                     class="stroke-color-input btn-font"
@@ -202,7 +298,13 @@
                 <button
                   class="btn-font fill-color-icon color-picker"
                   style="color: #e4591d"
+                  aria-label="fill color selector"
                 >
+                  <img
+                    class="icon icon-brush"
+                    src="images/svgs/brush.svg"
+                    alt="brush icon"
+                  />
                   <input
                     type="color"
                     class="fill-color-input btn-font"
@@ -211,31 +313,41 @@
                 </button>
               </div>
               <div class="sticker-container full"></div>
-              <div
-                class="save-container full flex f-ai-center f-jc-center f-wrap f-gap-05"
-              >
+              <div class="save-container full grid editor-tooling-grid">
                 <a
                   href="#"
                   data-trans="save"
                   class="btn btn-save"
                   onclick="onSaveMeme(event)"
-                  >Save</a
-                >
+                  aria-label="save meme using local storage"
+                  >Save<img
+                    class="icon icon-bookmark"
+                    src="images/svgs/bookmark.svg"
+                    alt="bookmark icon"
+                /></a>
                 <a
                   href="#"
                   data-trans="download"
                   class="btn btn-download"
                   onclick="onDownloadMeme(this)"
                   download="Download meme"
-                  >Download</a
-                >
+                  aria-label="download meme to local machine"
+                  >Download<img
+                    class="icon icon-download"
+                    src="images/svgs/download.svg"
+                    alt="download icon"
+                /></a>
                 <a
                   href="#"
                   data-trans="share"
                   class="btn btn-share"
                   onclick="onShareMeme(event)"
-                  >Share</a
-                >
+                  aria-label="share meme on facebook"
+                  >Share<img
+                    class="icon icon-facebook"
+                    src="images/svgs/facebook.svg"
+                    alt="facebook icon"
+                /></a>
               </div>
             </div>
           </div>
