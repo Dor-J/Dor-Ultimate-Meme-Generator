@@ -124,14 +124,6 @@ function renderSavedPics() {
   })
 }
 
-function onSaveMeme(ev) {
-  ev.preventDefault()
-  const elCanvas = getElCanvas()
-  const dataUrl = elCanvas.toDataURL()
-  addSavedPic(dataUrl)
-  renderSavedPics()
-}
-
 function onRemoveSavedPic(picId) {
   removeSavedPic(picId)
   renderSavedPics()

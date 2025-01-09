@@ -19,7 +19,16 @@ function loadImageFromInput(ev, onImageReady) {
   reader.readAsDataURL(ev.target.files[0])
 }
 
-function onUploadMeme(ev) {
+// DOWNLOAD
+function downloadMeme(elLink) {
+  const elCanvas = getElCanvas()
+  const dataUrl = elCanvas.toDataURL()
+  elLink.href = dataUrl
+  elLink.download = 'That-thing-you-draw'
+}
+
+// SHARE
+function shareMeme(ev) {
   ev.preventDefault()
   const elCanvas = getElCanvas()
   const canvasData = elCanvas.toDataURL('image/jpeg')
