@@ -123,31 +123,35 @@ function renderLine(line, ctx) {
 }
 
 // DRAW FUNCTIONS
-function drawArc(x, y, radius = 60, color = 'blue') {
-  //TODO:
-  gCtx.beginPath()
-  gCtx.lineWidth = '6'
-  gCtx.arc(x, y, radius, 0, 2 * Math.PI)
-  gCtx.strokeStyle = 'white'
-  gCtx.stroke()
-  gCtx.fillStyle = color
-  gCtx.fill()
-}
 
-function drawText(x, y) {
-  //TODO:
-  const editor = getEditor()
-  const ctx = getCtx()
+function drawSelectionRectangle(line, ctx) {
+  const { pos, fontSize, size, type } = line
   ctx.beginPath()
-  ctx.lineWidth = 2
-  ctx.strokeStyle = 'black'
-  ctx.fillStyle = 'black'
-  ctx.font = '40px Arial'
-  ctx.textAlign = 'center'
-  ctx.textBaseline = 'middle'
+  ctx.strokeStyle = 'blue'
+  ctx.setLineDash([6])
+  ctx.lineWidth = 1
 
-  ctx.fillText(text, x, y)
-  ctx.strokeText(text, x, y)
+  if (type === 'text') {
+    // Text selection rectangle
+    const textWidth = ctx.measureText(line.text).width
+    const textHeight = fontSize
+    ctx.strokeRect(
+      pos.x - textWidth / 2 - 5,
+      pos.y - textHeight / 2 - 5,
+      textWidth + 10,
+      textHeight + 10
+    )
+  } else if (type === 'circle') {
+    // Circle selection rectangle
+    ctx.strokeRect(
+      pos.x - size - 5,
+      pos.y - size - 5,
+      size * 2 + 10,
+      size * 2 + 10
+    )
+  }
+
+  ctx.setLineDash([])
 }
 
 // GET POSITION
