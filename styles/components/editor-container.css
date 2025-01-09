@@ -12,6 +12,10 @@
   grid-column: 1/-1;
 }
 
+.editor-container .editor {
+  background-color: rgba(211, 211, 211, 0.812);
+}
+
 .editor-container .editor .text-input-container {
   grid-template-rows: 1fr;
 

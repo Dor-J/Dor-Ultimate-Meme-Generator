@@ -12,6 +12,7 @@ html {
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: azure;
 }
 
 h1,
@@ -23,6 +24,10 @@ h6 {
   font-family: Bangers;
   letter-spacing: 1.2px;
   text-align: center;
+}
+
+p {
+  font-family: DMS-Regular;
 }
 
 img {
@@ -38,11 +43,25 @@ li {
 }
 
 .btn {
+  font-family: DMS-Regular;
   padding: 0.6em 1.2em;
-  font-size: 1rem;
   background-color: lightgray;
   color: black;
   border: 1px solid black;
   border-radius: 2em;
   cursor: pointer;
+}
+
+.card,
+.pic-display {
+  border-radius: 2em;
+  padding: 1em;
+  background-color: lightslategray;
+  box-shadow: inset 4px 2px 7px 3px rgba(0, 0, 0, 0.5);
+}
+
+.card img,
+.pic-display canvas {
+  border-radius: 2em;
+  border: 3px solid gray;
 }
