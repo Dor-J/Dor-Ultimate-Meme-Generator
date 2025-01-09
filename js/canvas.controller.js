@@ -65,27 +65,61 @@ function onUp(ev) {
   document.body.style.cursor = 'default'
 }
 
+// RENDER
 function renderCanvas() {
-  renderLines()
-}
+  const elCanvas = getElCanvas()
+  const ctx = getCtx()
 
-function renderLines() {
-  console.log('renderLines active')
+  ctx.clearRect(0, 0, elCanvas.width, elCanvas.height)
+
+  // draw background image
+  const img = getCurrentMemeImage() // Implement this function to get the current image
+  if (img) {
+    ctx.drawImage(img, 0, 0, elCanvas.width, elCanvas.height)
+  }
 
   const lines = getLines()
-  console.log('lines', lines)
   lines.forEach((line) => {
-    renderLines(line)
+    renderLine(line, ctx)
   })
+
+  const activeLine = getActiveLine()
+  if (activeLine) {
+    drawSelectionRectangle(activeLine, ctx)
+  }
 }
 
-function renderLine(line) {
-  const { pos, color, radius, data } = getLineById(line.id)
-  if (line.type === 'circle') {
-    //Draw the circle/emoji
-    drawArc(pos.x, pos.y, radius, color, data)
+function renderLine(line, ctx) {
+  const {
+    pos,
+    fontSize,
+    fontFamily,
+    fillColor,
+    strokeColor,
+    text,
+    size,
+    type,
+  } = line
+
+  if (type === 'text') {
+    // Draw text
+    ctx.beginPath()
+    ctx.font = `${fontSize}px ${fontFamily}`
+    ctx.fillStyle = fillColor
+    ctx.strokeStyle = strokeColor
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
+    ctx.fillText(text, pos.x, pos.y)
+    ctx.strokeText(text, pos.x, pos.y)
+  } else if (type === 'circle') {
+    // Draw emoji/icon as circle
+    ctx.beginPath()
+    ctx.arc(pos.x, pos.y, size, 0, 2 * Math.PI)
+    ctx.fillStyle = fillColor
+    ctx.strokeStyle = strokeColor
+    ctx.fill()
+    ctx.stroke()
   }
-  drawText(data, pos.x, pos.y)
 }
 
 // DRAW FUNCTIONS
