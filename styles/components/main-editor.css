@@ -1,6 +1,6 @@
 .main-editor {
-  background-color: lightgray;
+  background-color: var(--bg-clr-secondary-1);
   place-items: center;
   border-radius: 3em;
-  box-shadow: inset 4px 2px 7px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--box-shadow-primary-2);
 }

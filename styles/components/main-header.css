@@ -1,5 +1,13 @@
 .main-header {
   width: 100%;
-  background-color: lightskyblue;
-  box-shadow: inset 9px 0px 10px 1px rgba(11, 36, 200, 0.7);
+  background-color: var(--bg-clr-secondary-3);
+  box-shadow: var(--box-shadow-secondary-1);
+}
+
+.main-header .logo {
+  font-size: 2rem;
+  line-height: 1rem;
+  font-weight: 800;
+  font-family: DMS-Bold;
+  pointer-events: none;
 }

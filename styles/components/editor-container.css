@@ -13,7 +13,7 @@
 }
 
 .editor-container .editor {
-  background-color: rgba(211, 211, 211, 0.812);
+  background-color: var(--bg-clr-overlay-8);
 }
 
 .editor-container .editor .text-input-container {
@@ -22,6 +22,10 @@
   text-align: center;
   justify-items: center;
   align-items: center;
+
+  background-color: var(--bg-clr-overlay-1);
+  border-radius: 0.5em;
+  padding: 0.3em;
 }
 
 .editor-container .editor .text-input-container .meme-text-input {
