@@ -7,10 +7,10 @@
   .main-header .btn-toggle-menu::before {
     position: absolute;
     content: 'X';
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 900;
-    top: -80%;
-    right: -40%;
+    top: -20%;
+    right: 0;
     display: none;
   }
 
@@ -24,6 +24,7 @@
     background-color: var(--bg-clr-overlay-5);
     left: 0;
     width: 100%;
+    z-index: 10;
 
     display: grid;
     grid-template-rows: 0fr;
@@ -35,15 +36,6 @@
     text-align: center;
   }
 
-  .main-nav a {
-    color: #fff;
-    box-shadow: none;
-  }
-
-  .main-nav a.active-nav {
-    box-shadow: none;
-  }
-
   body.menu-open .main-nav {
     grid-template-rows: 1fr;
   }
@@ -51,24 +43,316 @@
   .main-nav > ul {
     flex-direction: column;
     min-height: 0;
+
+    li {
+      border-block-end: 2px solid #fff;
+      box-shadow: var(--box-shadow-secondary-3);
+      width: 100%;
+      &:hover {
+        width: 100%;
+        background-color: var(--bg-clr-overlay-6);
+      }
+
+      a {
+        color: #fff;
+        box-shadow: none;
+        padding: 0.2em 1.6em;
+
+        &:hover {
+          border-radius: 1em;
+          background-color: var(--bg-clr-overlay-7);
+        }
+      }
+    }
   }
 
-  .main-nav > ul li {
-    border-bottom: 2px solid #fff;
+  .pics-grid {
+    padding: 0.5em;
+    margin-inline: 1em;
+
+    img {
+      max-width: 70%;
+      margin-inline: 15%;
+    }
   }
 }
 
 /* Small */
 @media (min-width: 680px) {
+  .main-layout {
+    grid-template-columns: 0.1fr 1fr 0.1fr;
+  }
+  .main-layout > .full {
+    grid-column: 1/-1;
+  }
+  .main-layout > *:not(.full) {
+    grid-column: 2;
+  }
+
+  .main-header {
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+  }
+
+  section.about {
+    width: 100%;
+  }
+
+  .pics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 0.5rem;
+    grid-auto-flow: dense;
+    padding: 0.5;
+  }
+
+  .main-editor {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    max-height: 1000px;
+
+    .canvas-container {
+      grid-column: 1;
+      grid-row: 1;
+
+      canvas {
+        max-height: 400px;
+      }
+    }
+    .editor-container {
+      grid-column: 1;
+      grid-row: 2;
+    }
+  }
+
+  .editor-tooling-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: row;
+    grid-auto-rows: auto-fit;
+    gap: 5px;
+  }
+
+  .icon {
+    max-width: 1.5em;
+    max-height: 1.5em;
+  }
+  .icon.icon-keyboard,
+  .icon.icon-font,
+  .icon.icon-plus,
+  .icon.icon-minus {
+    max-width: 1em;
+    max-height: 1em;
+  }
+  .icon.icon-align-left,
+  .icon.icon-align-center,
+  .icon.icon-align-right,
+  .icon.icon-align-justify,
+  .icon.icon-repeat,
+  .icon.icon-square-plus,
+  .icon.icon-trash-can {
+    max-width: 1.5em;
+    max-height: 1.5em;
+  }
+  .icon.icon-palette,
+  .icon.icon-brush,
+  .icon.icon-bookmark,
+  .icon.icon-download,
+  .icon.icon-facebook {
+    max-width: 0.8em;
+    max-height: 0.8em;
+  }
 }
 
 /* Medium */
 @media (min-width: 860px) {
-  .main-header .btn-toggle-menu {
-    display: none;
+  .main-header {
+    .logo {
+      font-size: 2.25rem;
+      line-height: 1rem;
+    }
+
+    .btn-toggle-menu {
+      display: none;
+
+      img {
+        max-width: 40px;
+        max-height: 40px;
+      }
+    }
+  }
+
+  .pics-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+    grid-auto-flow: dense;
+  }
+
+  .main-editor {
+    max-height: 1200px;
+
+    .canvas-container {
+      grid-column: 1;
+      grid-row: 1;
+
+      canvas {
+        max-height: 700px;
+      }
+    }
+    .editor-container {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .editor-tooling-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-flow: row;
+      grid-auto-rows: auto-fit;
+      gap: 5px;
+    }
+  }
+
+  /* styles/components/about.css */
+  .about-container {
+    grid-template-columns: 1fr 3fr;
+    place-items: center;
+    grid-template-rows: 150px;
+
+    padding: 1em;
+    border-radius: 2em;
+
+    img {
+      max-width: 120px;
+    }
+  }
+
+  .icon {
+    max-width: 2em;
+    max-height: 2em;
+  }
+  .icon.icon-keyboard,
+  .icon.icon-font,
+  .icon.icon-plus,
+  .icon.icon-minus {
+    max-width: 1.5em;
+    max-height: 1.5em;
+  }
+  .icon.icon-align-left,
+  .icon.icon-align-center,
+  .icon.icon-align-right,
+  .icon.icon-align-justify,
+  .icon.icon-repeat,
+  .icon.icon-square-plus,
+  .icon.icon-trash-can {
+    max-width: 2em;
+    max-height: 2em;
+  }
+  .icon.icon-palette,
+  .icon.icon-brush,
+  .icon.icon-bookmark,
+  .icon.icon-download,
+  .icon.icon-facebook {
+    max-width: 1em;
+    max-height: 1em;
   }
 }
 
-/* Large */
-@media (min-width: 1100px) {
+/*  Large */
+@media (min-width: 1230px) {
+  /* styles/basics/layout.css */
+  .main-layout {
+    grid-template-columns: 0.1fr 1fr 0.1fr;
+  }
+
+  /* pics content layout */
+  .pics-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* main editor layout */
+  .main-editor {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 0.1fr 1fr;
+
+    .canvas-container {
+      grid-column: 1;
+      grid-row: 1;
+
+      canvas {
+        max-width: 50vw;
+      }
+    }
+    .editor-container {
+      grid-column: 3;
+      grid-row: 1;
+    }
+  }
+
+  /* editor tooling layout */
+  .editor-tooling-grid {
+    gap: 10px;
+  }
+
+  /* styles/components/main-header.css */
+  .logo {
+    font-size: 2.5rem;
+    line-height: 1.25rem;
+  }
+
+  /* styles/components/editor-container.css */
+  .editor-container .editor {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto-fit;
+    grid-auto-flow: row;
+  }
+  .editor-container .editor .text-input-container {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    gap: 0.5em;
+
+    padding: 0.3em;
+  }
+  .font-editors-container .btn-font.stroke-color-input,
+  .font-editors-container .btn-font.fill-color-input {
+    height: 3em;
+  }
+
+  /* styles/components/section-header.css */
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  /* styles/components/icon.css */
+  .icon {
+    max-width: 2.4em;
+    max-height: 2.4em;
+  }
+  .icon.icon-keyboard,
+  .icon.icon-font,
+  .icon.icon-plus,
+  .icon.icon-minus {
+    max-width: 2em;
+    max-height: 2em;
+  }
+  .icon.icon-align-left,
+  .icon.icon-align-center,
+  .icon.icon-align-right,
+  .icon.icon-align-justify,
+  .icon.icon-repeat,
+  .icon.icon-square-plus,
+  .icon.icon-trash-can {
+    max-width: 3em;
+    max-height: 3em;
+  }
+  .icon.icon-palette,
+  .icon.icon-brush,
+  .icon.icon-bookmark,
+  .icon.icon-download,
+  .icon.icon-facebook {
+    max-width: 1.4em;
+    max-height: 1.4em;
+  }
 }

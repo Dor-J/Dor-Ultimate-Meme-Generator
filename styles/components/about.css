@@ -1,8 +1,17 @@
-.about-container {
-  grid-template-columns: 1fr 1fr;
-  place-items: center;
-  column-gap: 1em;
+section.about {
+  width: 90%;
 }
+
+.about-container {
+  grid-template-columns: 1fr;
+  place-items: center;
+  grid-template-rows: 150px 150px;
+
+  padding: 1em;
+  background-color: var(--bg-clr-overlay-4);
+  border-radius: 2em;
+}
+
 .about-container img {
   border-radius: 50%;
 }

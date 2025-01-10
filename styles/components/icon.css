@@ -1,18 +1,18 @@
 .icon {
-  max-width: 2.4em;
-  max-height: 2.4em;
+  max-width: 1.4em;
+  max-height: 1.4em;
 }
 
 .icon.icon-keyboard {
-  margin-inline-start: 5px;
+  margin-inline-start: 2px;
 }
 
 .icon.icon-keyboard,
 .icon.icon-font,
 .icon.icon-plus,
 .icon.icon-minus {
-  max-width: 2em;
-  max-height: 2em;
+  max-width: 1em;
+  max-height: 1em;
 }
 
 .icon.icon-align-left,
@@ -22,8 +22,8 @@
 .icon.icon-repeat,
 .icon.icon-square-plus,
 .icon.icon-trash-can {
-  max-width: 3em;
-  max-height: 3em;
+  max-width: 1.4em;
+  max-height: 1.4em;
 }
 
 .icon.icon-palette,
@@ -31,6 +31,6 @@
 .icon.icon-bookmark,
 .icon.icon-download,
 .icon.icon-facebook {
-  max-width: 1.5em;
-  max-height: 1.5em;
+  max-width: 0.8em;
+  max-height: 0.8em;
 }

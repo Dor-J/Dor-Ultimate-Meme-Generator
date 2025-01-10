@@ -1,11 +1,6 @@
-.editor-container {
-  grid-column: 3;
-  grid-row: 1;
-}
-
 .editor-container .editor {
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: auto-fit;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: auto;
   grid-auto-flow: row;
 }
 .editor-container .editor > .full {
@@ -18,6 +13,8 @@
 
 .editor-container .editor .text-input-container {
   grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  gap: 0.4em;
 
   text-align: center;
   justify-items: center;
