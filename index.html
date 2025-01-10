@@ -32,11 +32,7 @@
         </ul>
       </nav>
 
-      <button
-        class="btn-toggle-menu"
-        onclick="onToggleMenu()"
-        aria-label="menu toggle button"
-      >
+      <button class="btn-toggle-menu" aria-label="menu toggle button">
         <img
           class="icon icon-plus"
           src="images/svgs/bars.svg"
@@ -159,16 +155,12 @@
                   class="text-input"
                   placeholder="Add Text Here"
                   autocomplete="off"
-                  oninput="onChangeText(this)"
                 />
               </div>
               <div
                 class="input-editors-container full grid editor-tooling-grid"
               >
-                <button
-                  onclick="onSwitchLine()"
-                  class="btn-editor btn-switch-inputs"
-                >
+                <button class="btn-editor btn-switch-inputs">
                   <img
                     class="icon icon-repeat"
                     src="images/svgs/repeat.svg"
@@ -176,8 +168,7 @@
                   />
                 </button>
                 <button
-                  onclick="onAddLine()"
-                  class="btn-editor btn-add-input"
+                  class="btn-editor btn-add-line"
                   aria-label="add new line button"
                 >
                   <img
@@ -187,8 +178,7 @@
                   />
                 </button>
                 <button
-                  onclick="onDeleteLine()"
-                  class="btn-editor btn-delete-input"
+                  class="btn-editor btn-delete-line"
                   aria-label="delete line button"
                 >
                   <img
@@ -201,8 +191,7 @@
 
               <div class="font-editors-container full grid editor-tooling-grid">
                 <button
-                  class="btn-font"
-                  onclick="onUpdateLineSize(1)"
+                  class="btn-font btn-increace-font"
                   aria-label="increace font size button"
                 >
                   <img
@@ -217,9 +206,8 @@
                   />
                 </button>
                 <button
-                  class="btn-font"
-                  onclick="onUpdateLineSize(-1)"
-                  aria-label="decreace font size button"
+                  class="btn-font btn-decrease-font"
+                  aria-label="decrease font size button"
                 >
                   <img
                     class="icon icon-font"
@@ -233,8 +221,7 @@
                   />
                 </button>
                 <button
-                  class="btn-font"
-                  onclick="onSetAlignment('left')"
+                  class="btn-font btn-align-left"
                   aria-label="align font left button"
                 >
                   <img
@@ -244,8 +231,7 @@
                   />
                 </button>
                 <button
-                  class="btn-font"
-                  onclick="onSetAlignment('center')"
+                  class="btn-font btn-align-center"
                   aria-label="align font center button"
                 >
                   <img
@@ -255,8 +241,7 @@
                   />
                 </button>
                 <button
-                  class="btn-font"
-                  onclick="onSetAlignment('right')"
+                  class="btn-font btn-align-right"
                   aria-label="align font right button"
                 >
                   <img
@@ -266,8 +251,7 @@
                   />
                 </button>
                 <button
-                  class="btn-font"
-                  onclick="onSetAlignment('justify')"
+                  class="btn-font btn-align-justify"
                   aria-label="align font justify button"
                 >
                   <img
@@ -277,16 +261,15 @@
                   />
                 </button>
                 <select
-                  class="font-picker"
-                  onchange="onSetFont(this)"
+                  class="font-family-picker"
                   aria-label="font family selector"
                 >
+                  <option value="impact">IMPACT</option>
                   <option value="times new roman">TIMES NEW ROMAN</option>
                   <option value="arial">ARIAL</option>
                   <option value="verdana">VERDANA</option>
                   <option value="tahoma">TAHOMA</option>
                   <option value="courier new">COURIER NEW</option>
-                  <option value="impact">IMPACT</option>
                   <option value="georgia">GEORGIA</option>
                   <option value="garamond">GARAMOND</option>
                 </select>
@@ -299,11 +282,7 @@
                     src="images/svgs/palette.svg"
                     alt="palette icon"
                   />
-                  <input
-                    type="color"
-                    class="stroke-color-input btn-font"
-                    oninput="onSetStrokeStyle(this)"
-                  />
+                  <input type="color" class="stroke-color-input btn-font" />
                 </button>
                 <button
                   class="btn-font fill-color-icon color-picker"
@@ -314,11 +293,7 @@
                     src="images/svgs/brush.svg"
                     alt="brush icon"
                   />
-                  <input
-                    type="color"
-                    class="fill-color-input btn-font"
-                    oninput="onSetFillStyle(this)"
-                  />
+                  <input type="color" class="fill-color-input btn-font" />
                 </button>
               </div>
               <div class="sticker-container full"></div>
@@ -327,7 +302,6 @@
                   href="#"
                   data-trans="save"
                   class="btn btn-save"
-                  onclick="onSaveMeme(event)"
                   aria-label="save meme using local storage"
                   >Save<img
                     class="icon icon-bookmark"
@@ -338,7 +312,6 @@
                   href="#"
                   data-trans="download"
                   class="btn btn-download"
-                  onclick="onDownloadMeme(this)"
                   download="Download meme"
                   aria-label="download meme to local machine"
                   >Download<img
@@ -350,7 +323,6 @@
                   href="#"
                   data-trans="share"
                   class="btn btn-share"
-                  onclick="onShareMeme(event)"
                   aria-label="share meme on facebook"
                   >Share<img
                     class="icon icon-facebook"
@@ -381,7 +353,7 @@
     <footer class="footer full flex f-ai-center f-jc-center pa-1">
       <p>CaDec24 &copy; ex-ultimate-meme-generator</p>
     </footer>
-    <div class="backdrop" onclick="onToggleMenu()"></div>
+    <div class="backdrop"></div>
 
     <script src="js/services/storage.service.js" defer></script>
     <script src="js/services/utils.service.js" defer></script>

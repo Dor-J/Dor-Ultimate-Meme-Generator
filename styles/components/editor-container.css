@@ -53,6 +53,7 @@
 .font-editors-container .btn-font.stroke-color-icon {
   color: rgb(23, 180, 20);
 }
+
 .font-editors-container .btn-font.fill-color-icon {
   color: var(--clr-secondary-blue-light);
 }
@@ -63,7 +64,7 @@
   height: 2.5em;
 }
 
-.font-editors-container .font-picker {
+.font-editors-container .font-family-picker {
   background-color: var(--bg-clr-overlay-1);
   border: 1px solid var(--clr-primary-black);
   border-radius: 1em;
