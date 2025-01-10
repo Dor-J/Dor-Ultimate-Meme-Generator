@@ -2,6 +2,7 @@
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: auto;
   grid-auto-flow: row;
+  border-radius: 1em;
 }
 .editor-container .editor > .full {
   grid-column: 1/-1;
@@ -25,8 +26,53 @@
   padding: 0.3em;
 }
 
-.editor-container .editor .text-input-container .meme-text-input {
+.editor-container .editor .text-input-container .text-input {
   width: 100%;
   min-height: 30px;
   text-align: left;
+}
+
+.editor-container .editor .text-input-container .text-input-label {
+  line-height: 1.2rem;
+}
+
+.editor-container .editor .save-container a {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.font-editors-container .btn-font {
+  color: var(--clr-primary-black);
+  background-color: var(--bg-clr-overlay-1);
+  border: 1px solid var(--clr-primary-black);
+}
+
+.font-editors-container .btn-font.stroke-color-icon {
+  color: rgb(23, 180, 20);
+}
+.font-editors-container .btn-font.fill-color-icon {
+  color: var(--clr-secondary-blue-light);
+}
+
+.font-editors-container .btn-font.stroke-color-input,
+.font-editors-container .btn-font.fill-color-input {
+  padding: none;
+  height: 2.5em;
+}
+
+.font-editors-container .font-picker {
+  background-color: var(--bg-clr-overlay-1);
+  border: 1px solid var(--clr-primary-black);
+  border-radius: 1em;
+  text-align: justify;
+  white-space: pre;
+  text-overflow: ellipsis;
+  width: 100%;
+
+  option {
+    cursor: pointer;
+  }
 }
