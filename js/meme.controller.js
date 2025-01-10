@@ -14,10 +14,16 @@ function addEventListeners() {
 
   // NAV
   document.querySelector('.nav-gallery').addEventListener('click', onNavGallery)
+
   document
     .querySelector('.nav-generator')
     .addEventListener('click', onNavGenerator)
+
   document.querySelector('.nav-saved').addEventListener('click', onNavSaved)
+
+  document
+    .querySelector('.nav-about')
+    .addEventListener('click', closeToggleMenu)
 
   // CANVAS
   const elCanvas = document.querySelector('.canvas-container canvas')
@@ -39,7 +45,7 @@ function addEventListeners() {
     .addEventListener('input', () => onChangeText(textInput))
 
   document
-    .querySelector('.btn-switch-inputs')
+    .querySelector('.btn-switch-lines')
     .addEventListener('click', onSwitchLine)
 
   document.querySelector('.btn-add-line').addEventListener('click', onAddLine)
@@ -104,21 +110,26 @@ function onToggleMenu() {
 
 function onNavGallery() {
   hideAllSections()
-  document.querySelector('.pics-gallery').classList.remove('hidden')
+  document.querySelector('section.pics-gallery').classList.remove('hidden')
 }
 
 function onNavGenerator() {
   hideAllSections()
-  document.querySelector('.meme-generator').classList.remove('hidden')
+  document.querySelector('section.meme-generator').classList.remove('hidden')
 }
 
 function onNavSaved() {
   hideAllSections()
-  document.querySelector('.saved').classList.remove('hidden')
+  document.querySelector('section.saved').classList.remove('hidden')
 }
 
 function hideAllSections() {
-  document.querySelector('.pics-gallery').classList.add('hidden')
-  document.querySelector('.saved').classList.add('hidden')
-  document.querySelector('.meme-generator').classList.add('hidden')
+  document.querySelector('section.pics-gallery').classList.add('hidden')
+  document.querySelector('section.saved').classList.add('hidden')
+  document.querySelector('section.meme-generator').classList.add('hidden')
+  closeToggleMenu()
+}
+
+function closeToggleMenu() {
+  document.body.classList.remove('menu-open')
 }
