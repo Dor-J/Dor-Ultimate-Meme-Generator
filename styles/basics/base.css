@@ -12,7 +12,8 @@ html {
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: azure;
+  background-color: var(--bg-clr-base);
+  width: 100%;
 }
 
 h1,
@@ -45,9 +46,9 @@ li {
 .btn {
   font-family: DMS-Regular;
   padding: 0.6em 1.2em;
-  background-color: lightgray;
-  color: black;
-  border: 1px solid black;
+  background-color: var(--bg-clr-secondary-1);
+  color: var(--clr-primary-black);
+  border: 1px solid var(--clr-primary-black);
   border-radius: 2em;
   cursor: pointer;
 }
@@ -56,12 +57,23 @@ li {
 .pic-display {
   border-radius: 2em;
   padding: 1em;
-  background-color: lightslategray;
-  box-shadow: inset 4px 2px 7px 3px rgba(0, 0, 0, 0.5);
+  background-color: var(--bg-clr-secondary-2);
+  box-shadow: var(--box-shadow-primary-2);
 }
 
 .card img,
 .pic-display canvas {
   border-radius: 2em;
-  border: 3px solid gray;
+  border: 3px solid var(--clr-primary-gray);
+}
+
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: none;
 }

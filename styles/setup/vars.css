@@ -1,1 +1,33 @@
+:root {
+  /* ---- Primary Colors ---- */
+  --clr-primary-black: #000000;
+  --clr-primary-white: #ffffff;
+  --clr-primary-gray: #808080;
 
+  /* ---- Secondary Colors ---- */
+  --clr-secondary-blue-light: #5fafe0;
+  --clr-secondary-orange-dark: #e4591d;
+  --clr-secondary-green: #17b414;
+
+  /* ---- Background Colors ---- */
+  --bg-clr-base: azure;
+  --bg-clr-secondary-1: lightgray;
+  --bg-clr-secondary-2: lightslategray;
+  --bg-clr-secondary-3: lightskyblue;
+
+  --bg-clr-overlay-1: rgba(184, 183, 183, 0.857);
+  --bg-clr-overlay-2: rgba(0, 0, 0, 0.8);
+  --bg-clr-overlay-3: rgba(0, 0, 0, 1);
+  --bg-clr-overlay-4: rgba(77, 76, 98, 0.967);
+  --bg-clr-overlay-5: rgba(4, 0, 52, 0.95);
+  --bg-clr-overlay-6: rgba(9, 0, 108, 0.95);
+  --bg-clr-overlay-7: rgba(17, 48, 143, 0.95);
+  --bg-clr-overlay-8: rgba(211, 211, 211, 0.812);
+
+  /* ---- Box Shadows ---- */
+  --box-shadow-primary-1: inset 0 1px rgba(0, 0, 0, 0.5);
+  --box-shadow-primary-2: inset 4px 2px 7px 3px rgba(0, 0, 0, 0.5);
+  --box-shadow-secondary-1: inset 9px 0px 10px 1px rgba(11, 36, 200, 0.7);
+  --box-shadow-secondary-2: inset 0px -6px 0px rgb(95, 175, 224);
+  --box-shadow-secondary-3: inset 4px 4px 20px 0px rgba(25, 12, 169, 0.95);
+}

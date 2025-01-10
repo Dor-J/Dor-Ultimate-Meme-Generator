@@ -20,8 +20,8 @@
 
   .main-nav {
     position: fixed;
-    top: 60px;
-    background-color: rgba(0, 0, 0, 0.9);
+    top: 50px;
+    background-color: var(--bg-clr-overlay-5);
     left: 0;
     width: 100%;
 
