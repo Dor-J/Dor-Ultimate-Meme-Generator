@@ -8,13 +8,18 @@ function onInit() {
   onResize()
 }
 
-function onToggleMenu() {
-  document.body.classList.toggle('menu-open')
-}
-
 function addEventListeners() {
+  //BODY
   window.addEventListener('resize', onResize)
 
+  // NAV
+  document.querySelector('.nav-gallery').addEventListener('click', onNavGallery)
+  document
+    .querySelector('.nav-generator')
+    .addEventListener('click', onNavGenerator)
+  document.querySelector('.nav-saved').addEventListener('click', onNavSaved)
+
+  // CANVAS
   const elCanvas = document.querySelector('.canvas-container canvas')
   elCanvas.addEventListener('mousedown', onDown)
   elCanvas.addEventListener('mousemove', onMove)
@@ -23,10 +28,12 @@ function addEventListeners() {
   elCanvas.addEventListener('touchmove', onMove)
   elCanvas.addEventListener('touchend', onUp)
 
+  // TOGGLE BTN
   document
     .querySelector('.btn-toggle-menu')
     .addEventListener('click', onToggleMenu)
 
+  // EDITOR
   document
     .querySelector('#text-input')
     .addEventListener('input', () => onChangeText(textInput))
@@ -74,6 +81,7 @@ function addEventListeners() {
   const elFillInput = document.querySelector('.fill-color-input')
   elFillInput.addEventListener('input', () => onSetFillStyle(elFillInput))
 
+  //SAVE
   document
     .querySelector('.btn-save')
     .addEventListener('click', (ev) => onSaveMeme(ev))
@@ -86,5 +94,31 @@ function addEventListeners() {
     .querySelector('.btn-share')
     .addEventListener('click', (ev) => onShareMeme(ev))
 
+  //BACCKDROP
   document.querySelector('.backdrop').addEventListener('click', onToggleMenu)
+}
+
+function onToggleMenu() {
+  document.body.classList.toggle('menu-open')
+}
+
+function onNavGallery() {
+  hideAllSections()
+  document.querySelector('.pics-gallery').classList.remove('hidden')
+}
+
+function onNavGenerator() {
+  hideAllSections()
+  document.querySelector('.meme-generator').classList.remove('hidden')
+}
+
+function onNavSaved() {
+  hideAllSections()
+  document.querySelector('.saved').classList.remove('hidden')
+}
+
+function hideAllSections() {
+  document.querySelector('.pics-gallery').classList.add('hidden')
+  document.querySelector('.saved').classList.add('hidden')
+  document.querySelector('.meme-generator').classList.add('hidden')
 }

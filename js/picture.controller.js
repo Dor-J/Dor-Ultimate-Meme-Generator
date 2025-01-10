@@ -69,6 +69,9 @@ function onSelectPic(ev) {
     setCurrentImage(image)
     renderMeme(image)
   }
+
+  onNavGenerator()
+  onResize()
 }
 
 ///////////////////////////////////////////////
@@ -138,4 +141,7 @@ function onSelectSavedPic(picId) {
     renderMeme(image)
   }
   image.src = dataUrl
+
+  onNavGenerator()
+  onResize()
 }
