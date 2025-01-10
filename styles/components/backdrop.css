@@ -1,0 +1,19 @@
+body .backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-clr-overlay-2);
+  cursor: pointer;
+  pointer-events: none;
+  opacity: 0;
+
+  &:hover {
+    background-color: var(--bg-clr-overlay-3);
+  }
+
+  transition: opacity 0.8s, background-color 0.5s;
+}
+
+body.menu-open .backdrop {
+  opacity: 1;
+  pointer-events: auto;
+}

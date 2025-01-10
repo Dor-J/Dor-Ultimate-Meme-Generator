@@ -9,15 +9,13 @@
 
 /* Components */
 @import url(components/main-header.css);
-@import url(components/brand-logo.css);
+@import url(components/backdrop.css);
 @import url(components/nav-link.css);
 @import url(components/icon.css);
 @import url(components/section-header.css);
 @import url(components/main-editor.css);
 @import url(components/canvas-container.css);
 @import url(components/editor-container.css);
-@import url(components/save-container.css);
-@import url(components/font-editors-container.css);
 @import url(components/about.css);
 @import url(components/footer.css);
 
