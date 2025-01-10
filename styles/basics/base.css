@@ -96,6 +96,11 @@ li {
   border: 3px solid var(--clr-primary-gray);
 }
 
+.card.card-pic {
+  place-items: center;
+  align-content: center;
+}
+
 .hidden {
   position: absolute;
   width: 1px;

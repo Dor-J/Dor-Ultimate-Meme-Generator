@@ -15,6 +15,8 @@ function onResize() {
   if (img) {
     elCanvas.height = (img.naturalHeight / img.naturalWidth) * elCanvas.width
   }
+
+  renderCanvas()
 }
 
 function renderMeme(img) {
