@@ -55,6 +55,31 @@ li {
   border: 1px solid var(--clr-primary-black);
   border-radius: 2em;
   cursor: pointer;
+  box-shadow: var(--box-shadow-primary-1);
+
+  &:active {
+    scale: 0.9;
+  }
+}
+
+.btn-editor {
+  font-family: DMS-Regular;
+
+  background-color: var(--bg-clr-overlay-1);
+  border-radius: 0.5em;
+  padding: 0.3em;
+  cursor: pointer;
+}
+
+.btn-font {
+  font-family: DMS-Regular;
+  padding: 0.5em;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.btn-toggle-menu {
+  padding: 0.5em;
 }
 
 .card,

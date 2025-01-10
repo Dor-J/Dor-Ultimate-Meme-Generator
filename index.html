@@ -146,7 +146,7 @@
           <div class="editor-container pa-05">
             <div class="editor grid grid-gap-1">
               <div class="text-input-container full grid">
-                <label for="meme-text-input"
+                <label class="text-input-label" for="text-input"
                   >Enter text:
                   <img
                     class="icon icon-keyboard"
@@ -155,9 +155,10 @@
                 /></label>
                 <input
                   type="text"
-                  id="meme-text-input"
-                  class="meme-text-input"
+                  id="text-input"
+                  class="text-input"
                   placeholder="Add Text Here"
+                  autocomplete="off"
                   oninput="onChangeText(this)"
                 />
               </div>
@@ -291,7 +292,6 @@
                 </select>
                 <button
                   class="btn-font stroke-color-icon color-picker"
-                  style="color: rgb(23, 180, 20)"
                   aria-label="stroke color selector"
                 >
                   <img
@@ -307,7 +307,6 @@
                 </button>
                 <button
                   class="btn-font fill-color-icon color-picker"
-                  style="color: #e4591d"
                   aria-label="fill color selector"
                 >
                   <img
