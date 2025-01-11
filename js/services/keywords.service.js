@@ -17,7 +17,7 @@ function addKeywordBox(keywordBox) {
 }
 
 function getKeywordsMap() {
-  if (!gKeywordsMap || gKeywordsMap.length !== 0) {
+  if (Object.keys(gKeywordsMap).length === 0) {
     gKeywordsMap = getKeywordCountMap()
   }
   return gKeywordsMap

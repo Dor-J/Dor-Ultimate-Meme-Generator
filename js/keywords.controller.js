@@ -1,3 +1,4 @@
+// js/keywords.controller.js
 'use strict'
 
 function renderKeywordsCanvas() {
@@ -76,12 +77,12 @@ function onKeywordClicked(keyword) {
 
   const keywordsMap = getKeywordsMap()
   if (keywordsMap[keyword] !== undefined) {
-    keywordsMap[keyword]++
+    keywordsMap[keyword] += 2
   } else {
     // if not in map init it
     keywordsMap[keyword] = 2
   }
 
-  renderKeywordsCanvas()
   onSearchPics({ target: elSearchInput })
+  renderKeywordsCanvas()
 }
