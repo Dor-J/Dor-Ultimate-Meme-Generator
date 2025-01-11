@@ -105,8 +105,13 @@ function addEventListeners() {
     .querySelector('.btn-share')
     .addEventListener('click', (ev) => onShareMeme(ev))
 
-  //BACCKDROP
+  //BACKDROP
   document.querySelector('.backdrop').addEventListener('click', onToggleMenu)
+
+  //FILTER
+  document
+    .querySelector('#meme-search')
+    .addEventListener('input', (event) => onSearchPics(event))
 }
 
 function onToggleMenu() {

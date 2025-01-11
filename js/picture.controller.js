@@ -4,13 +4,29 @@
 function onInitPictures() {
   renderPics()
   renderSavedPics()
+  renderKeywordsCanvas()
 }
 
 // RENDER PICs
-function renderPics() {
-  const pics = getPics()
+function renderPics(filteredPics = null) {
+  const elPicsGrid = document.querySelector('section.pics-gallery .pics-grid')
+  let pics = null
+  if (filteredPics) {
+    if (filteredPics.length > 0) {
+      pics = filteredPics
+    } else {
+      elPicsGrid.innerHTML = '<p>No results found.</p>'
+    }
+  } else {
+    {
+      pics = getPics()
+    }
+  }
 
-  if (!pics) return
+  if (!pics) {
+    elPicsGrid.innerHTML = '<p>No results found.</p>'
+    return
+  }
 
   const strHTMLs = pics
     .map((pic, idx) => {
@@ -41,7 +57,6 @@ function renderPics() {
     })
     .join('')
 
-  const elPicsGrid = document.querySelector('section.pics-gallery .pics-grid')
   elPicsGrid.innerHTML = ''
   elPicsGrid.innerHTML = strHTMLs
 }
@@ -150,4 +165,46 @@ function onSelectSavedPic(picId) {
 
   onNavGenerator()
   onResize()
+}
+
+//////////////////////////////////////
+
+// filter and Keywords
+function onSearchPics(ev) {
+  const keyword = ev.target.value.trim().toLowerCase()
+  if (!keyword) return renderPics() // If empty, render all pictures
+
+  const filteredPics = getPictureByKeywords(keyword)
+  renderPics(filteredPics)
+}
+
+function onResetSearch() {
+  const searchInput = document.getElementById('meme-search')
+  searchInput.value = '' // Clear search input
+  renderPics()
+}
+
+function renderKeywordsCanvas() {
+  const elCanvas = document.querySelector('.keywords-canvas canvas')
+  const ctx = elCanvas.getContext('2d')
+  const keywordsMap = getKeywordCountMap()
+  const keywords = Object.keys(keywordsMap)
+
+  ctx.clearRect(0, 0, elCanvas.width, elCanvas.height)
+
+  const fontSizeBase = 10
+  let x = 10,
+    y = 30
+
+  keywords.forEach((keyword) => {
+    const fontSize = fontSizeBase + keywordsMap[keyword]
+    ctx.font = `${fontSize}px Arial`
+    ctx.fillStyle = 'black'
+    ctx.fillText(keyword, x, y)
+    x += ctx.measureText(keyword).width + 20 // Move to next position
+    if (x > elCanvas.width - 50) {
+      x = 10
+      y += fontSize + 10 // Move to next line
+    }
+  })
 }

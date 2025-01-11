@@ -56,25 +56,21 @@
         </div>
         <div class="picture-filter grid">
           <form
-            onsubmit="event.preventDefault();"
+            onsubmit="()=>{event.preventDefault()}"
             class="picture-search flex f-ai-center f-gap-1 f-wrap"
           >
             <label for="meme-search">Search memes</label>
             <input
               type="search"
-              name="meme-search"
               id="meme-search"
-              onchange="(event)=>{event.preventDefault();console.log('hi from search');}"
+              name="meme-search"
+              autocomplete="off"
             />
-            <input
-              type="submit"
-              value="Submit"
-              oncclick="(event)=>{event.preventDefault();console.log('hi from Submit');}"
-            />
-            <input type="reset" value="Reset" />
+
+            <input type="reset" value="Reset" onclick="onResetSearch(event)" />
           </form>
           <div class="keywords-search flex f-ai-center">
-            <div class="keywords-canvas-container">
+            <div class="keywords-canvas">
               <canvas width="200" height="50"></canvas>
             </div>
           </div>
