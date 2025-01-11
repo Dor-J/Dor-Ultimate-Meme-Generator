@@ -87,6 +87,11 @@ function addEventListeners() {
   const elFillInput = document.querySelector('.fill-color-input')
   elFillInput.addEventListener('input', () => onSetFillStyle(elFillInput))
 
+  const elEmojis = document.querySelectorAll('.emoji-list .emoji')
+  elEmojis.forEach((elEmojis) => {
+    elEmojis.addEventListener('click', (event) => onSelectEmoji(event.target))
+  })
+
   //SAVE
   document
     .querySelector('.btn-save')

@@ -132,11 +132,14 @@ function renderLine(line, ctx) {
   } else if (type === 'circle') {
     // Draw emoji/icon as circle
     ctx.beginPath()
-    ctx.arc(pos.x, pos.y, size, 0, 2 * Math.PI)
-    ctx.fillStyle = fillColor
-    ctx.strokeStyle = strokeColor
-    ctx.fill()
-    ctx.stroke()
+    ctx.font = `${fontSize * 2}px ${fontFamily || 'sans-serif'}`
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
+    ctx.fillText(text, pos.x, pos.y)
+    // regular circle
+    // ctx.arc(pos.x, pos.y, fontSize * 2, 0, 2 * Math.PI)
+    // ctx.strokeStyle = strokeColor
+    // ctx.stroke()
   }
 }
 
@@ -196,13 +199,10 @@ function drawSelectionRectangle(line, ctx) {
       textHeight + 10
     )
   } else if (type === 'circle') {
-    // Circle selection rectangle
-    ctx.strokeRect(
-      pos.x - size - 5,
-      pos.y - size - 5,
-      size * 2 + 10,
-      size * 2 + 10
-    )
+    // Circle selection circle
+    const selectionRadius = size + 5 // Add padding to the size
+    ctx.arc(pos.x, pos.y, selectionRadius, 0, 2 * Math.PI) // Full circle
+    ctx.stroke()
   }
 
   ctx.setLineDash([])

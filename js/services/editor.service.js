@@ -17,6 +17,16 @@ function addNewLine() {
   const defaultPos = { x: elCanvas.width / 2, y: elCanvas.height / 2 }
   const newLine = createNewLine(defaultPos)
   gEditor.activeLineId = newLine.id
+  gEditor.lines[newLine.id] = newLine
+  updateEditorStateFromLine(newLine)
+}
+
+function addEmojiLine(emoji) {
+  const elCanvas = getElCanvas()
+  const defaultPos = { x: elCanvas.width / 2, y: elCanvas.height / 2 }
+  const newLine = createNewLine(defaultPos, 'circle', emoji)
+  gEditor.activeLineId = newLine.id
+  gEditor.lines[newLine.id] = newLine
   updateEditorStateFromLine(newLine)
   saveEditorState()
 }

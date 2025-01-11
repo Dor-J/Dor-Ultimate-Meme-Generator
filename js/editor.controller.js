@@ -4,7 +4,8 @@
 function onChangeText(elTextInput) {
   const text = elTextInput.value.trim()
   if (!text) return
-  if (getActiveLine()) {
+  const line = getActiveLine()
+  if (line && line.type === 'text') {
     updateActiveLineText(text)
     renderCanvas()
   }
@@ -60,6 +61,17 @@ function onSetFillStyle(elFillColorInput) {
     updateActiveLineFillColor(elFillColorInput.value)
     renderCanvas()
   }
+}
+
+function onSelectEmoji(elEmoji) {
+  elEmoji.classList.add('selected-emoji')
+  addEmojiLine(elEmoji.innerText)
+  updateEditorUI()
+  renderCanvas()
+  setTimeout(() => {
+    const elSelectedEmoji = document.querySelector('.emoji.selected-emoji')
+    elSelectedEmoji.classList.remove('selected-emoji')
+  }, 2000)
 }
 
 // SAVE, DOWNLOAD, SOCIAL

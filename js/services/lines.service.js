@@ -69,14 +69,21 @@ function deleteLine(lineId) {
 function createNewLine(pos, type = 'text', content = '') {
   const newLine = {
     id: makeId(5),
-    text: type !== 'text' ? content : 'An apple a day, keeps microsoft away',
+    text:
+      type !== 'text'
+        ? content
+        : gLines.length > 0
+        ? editor.text !== ''
+          ? editor.text
+          : 'Empty line'
+        : 'An apple a day, keeps microsoft away',
     type,
-    fontSize: 20,
-    fontFamily: 'Arial',
-    strokeColor: '#000000',
-    fillColor: '#ffffff',
-    alignment: 'center',
-    size: type === 'circle' ? 60 : null, // radius
+    fontSize: editor.fontSize,
+    fontFamily: editor.fontFamily,
+    strokeColor: editor.strokeColor,
+    fillColor: editor.fillColor,
+    alignment: editor.alignment,
+    size: type === 'circle' ? editor.fontSize * 2 : null, // radius
     pos,
     isDrag: false,
   }
@@ -96,7 +103,7 @@ function isLinesClicked(clickedPos) {
       return distance <= line.size
     }
 
-    // Text-based line
+    // text
     const distanceX = Math.abs(pos.x - clickedPos.x)
     const distanceY = Math.abs(pos.y - clickedPos.y)
     return distanceX <= line.width / 2 && distanceY <= line.height / 2
@@ -121,13 +128,25 @@ function addDefaultLine() {
   const elCanvas = getElCanvas()
   if (gLines.length === 0) {
     //  default line top
-    createNewLine({ x: elCanvas.width / 2, y: 40 })
+    const line = createNewLine({ x: elCanvas.width / 2, y: 40 })
+    setActiveLineId(line)
+    updateEditorStateFromLine(line)
   } else if (gLines.length === 1) {
     //  second line at bottom
-    createNewLine({ x: elCanvas.width / 2, y: elCanvas.height - 40 })
+    const line = createNewLine({
+      x: elCanvas.width / 2,
+      y: elCanvas.height - 40,
+    })
+    setActiveLineId(line)
+    updateEditorStateFromLine(line)
   } else {
     // add others center
-    createNewLine({ x: elCanvas.width / 2, y: elCanvas.height / 2 })
+    const line = createNewLine({
+      x: elCanvas.width / 2,
+      y: elCanvas.height / 2,
+    })
+    setActiveLineId(line)
+    updateEditorStateFromLine(line)
   }
 }
 
@@ -139,7 +158,7 @@ function getClickedLine(clickedPos) {
       )
       return distance <= line.size
     } else {
-      // For text
+      // text
       const distanceX = Math.abs(line.pos.x - clickedPos.x)
       const distanceY = Math.abs(line.pos.y - clickedPos.y)
       return distanceX <= line.width / 2 && distanceY <= line.height / 2

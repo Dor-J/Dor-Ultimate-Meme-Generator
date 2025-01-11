@@ -1,0 +1,8 @@
+.emoji-container {
+  background-color: #fff;
+  font-size: 1.5rem;
+}
+.emoji-container .emoji-list {
+  overflow-x: scroll;
+  cursor: pointer;
+}
