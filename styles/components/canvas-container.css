@@ -6,6 +6,7 @@
 
 .canvas-container canvas {
   max-width: 85vw;
+  pointer-events: auto;
 }
 
 .canvas-container canvas:hover {
