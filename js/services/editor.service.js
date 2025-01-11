@@ -1,8 +1,7 @@
 // js/services/editor.service.js
 'use strict'
 
-const STORAGE_KEY_EDITOR = 'editorStateDB'
-var gEditor = loadFromStorage(STORAGE_KEY_EDITOR) || _createEditor()
+var gEditor = _createEditor()
 
 function getEditor() {
   return gEditor
@@ -28,7 +27,6 @@ function addEmojiLine(emoji) {
   gEditor.activeLineId = newLine.id
   gEditor.lines[newLine.id] = newLine
   updateEditorStateFromLine(newLine)
-  saveEditorState()
 }
 
 function deleteActiveLine() {
@@ -36,7 +34,6 @@ function deleteActiveLine() {
   if (activeLine) {
     deleteLine(activeLine.id)
     setActiveLineToLastLine()
-    saveEditorState()
   }
 }
 
@@ -48,14 +45,13 @@ function switchToNextLine() {
   if (currentIndex === -1) {
     gEditor.activeLineId = lines[0].id
     updateEditorStateFromLine(lines[0])
-    saveEditorState()
+
     return
   }
   const nextIndex = (currentIndex + 1) % lines.length
   setActiveLineId(lines[nextIndex])
 
   updateEditorStateFromLine(lines[nextIndex])
-  saveEditorState()
 }
 
 function updateActiveLineText(text) {
@@ -63,7 +59,6 @@ function updateActiveLineText(text) {
   if (activeLine) {
     updateLineText(activeLine.id, text)
     gEditor.text = text
-    saveEditorState()
   }
 }
 
@@ -73,7 +68,6 @@ function updateActiveLineFontSize(diff) {
     const newFontSize = Math.max(1, activeLine.fontSize + diff)
     updateLineFontSize(activeLine.id, newFontSize)
     gEditor.fontSize = newFontSize
-    saveEditorState()
   }
 }
 
@@ -82,7 +76,7 @@ function updateActiveLineAlignment(alignment) {
   if (activeLine) {
     updateLineAlignment(activeLine.id, alignment)
     gEditor.alignment = alignment
-    saveEditorState()
+    updateEditorActiveAlign(alignment)
   }
 }
 
@@ -91,7 +85,6 @@ function updateActiveLineFont(fontFamily) {
   if (activeLine) {
     updateLineFontFamily(activeLine.id, fontFamily)
     gEditor.fontFamily = fontFamily
-    saveEditorState()
   }
 }
 
@@ -100,7 +93,6 @@ function updateActiveLineStrokeColor(color) {
   if (activeLine) {
     updateLineStrokeColor(activeLine.id, color)
     gEditor.strokeColor = color
-    saveEditorState()
   }
 }
 
@@ -109,7 +101,6 @@ function updateActiveLineFillColor(color) {
   if (activeLine) {
     updateLineFillColor(activeLine.id, color)
     gEditor.fillColor = color
-    saveEditorState()
   }
 }
 
@@ -121,7 +112,6 @@ function setActiveLineToLastLine() {
   } else {
     resetEditorState()
   }
-  saveEditorState()
 }
 
 function resetEditorState() {
@@ -159,10 +149,6 @@ function _createEditor() {
     fillColor: '#FFFFFF',
     alignment: 'center',
     activeLineId: null,
-    lines: [],
+    lines: {},
   }
-}
-
-function saveEditorState() {
-  saveToStorage(STORAGE_KEY_EDITOR, gEditor)
 }

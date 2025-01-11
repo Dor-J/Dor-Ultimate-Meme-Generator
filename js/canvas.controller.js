@@ -128,7 +128,15 @@ function renderLine(line, ctx) {
     ctx.textAlign = alignment
     ctx.textBaseline = 'middle'
 
-    wrapText(ctx, text, pos.x, pos.y, textHeight, alignment)
+    const multiLineHight = wrapText(
+      ctx,
+      text,
+      pos.x,
+      pos.y,
+      textHeight,
+      alignment
+    )
+    line.multiLineHight = multiLineHight
   } else if (type === 'circle') {
     // Draw emoji/icon as circle
     ctx.beginPath()
@@ -149,21 +157,24 @@ function wrapText(ctx, text, x, y, lineHeight, alignment = 'center') {
   const words = text.split(' ')
   let line = ''
   let currentY = y //current line's y position
+  let lineCounter = 1
 
   for (let i = 0; i < words.length; i++) {
     const testLine = line + words[i] + ' '
-    const testWidth = ctx.measureText(testLine).width
+    const actualWidth = ctx.measureText(testLine).width
 
-    if (testWidth > maxWidth && i > 0) {
+    if (actualWidth > maxWidth && i > 0) {
       drawTextLine(ctx, line, x, currentY, alignment)
       line = words[i] + ' '
       currentY += lineHeight
+      lineCounter++
     } else {
       line = testLine
     }
   }
 
   if (line) drawTextLine(ctx, line, x, currentY, alignment)
+  return lineCounter * lineHeight
 }
 
 function drawTextLine(ctx, line, x, y, alignment) {
@@ -182,7 +193,7 @@ function onResizeEmoji(diff) {
 // DRAW FUNCTIONS
 
 function drawSelectionRectangle(line, ctx) {
-  const { pos, fontSize, size, type } = line
+  const { pos, fontSize, size, type, multiLineHight } = line
   ctx.beginPath()
   ctx.strokeStyle = 'blue'
   ctx.setLineDash([6])
@@ -191,12 +202,12 @@ function drawSelectionRectangle(line, ctx) {
   if (type === 'text') {
     // Text selection rectangle
     const textWidth = ctx.measureText(line.text).width
-    const textHeight = fontSize
+    const textHeight = !multiLineHight ? fontSize : multiLineHight
     ctx.strokeRect(
       pos.x - textWidth / 2 - 5,
-      pos.y - textHeight / 2 - 5,
+      pos.y - textHeight / 2,
       textWidth + 10,
-      textHeight + 10
+      textHeight + 15
     )
   } else if (type === 'circle') {
     // Circle selection circle

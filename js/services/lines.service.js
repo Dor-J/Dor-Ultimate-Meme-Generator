@@ -42,7 +42,9 @@ function updateLineFontSize(lineId, fontSize) {
 
 function updateLineAlignment(lineId, alignment) {
   const line = getLineById(lineId)
-  if (line) line.alignment = alignment
+  if (line) {
+    line.alignment = alignment
+  }
 }
 
 function updateLineFontFamily(lineId, fontFamily) {
@@ -67,6 +69,8 @@ function deleteLine(lineId) {
 
 // CREATE
 function createNewLine(pos, type = 'text', content = '') {
+  const editor = getEditor()
+
   const newLine = {
     id: makeId(5),
     text:

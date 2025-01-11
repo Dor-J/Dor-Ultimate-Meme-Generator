@@ -5,9 +5,10 @@
   --clr-primary-gray: #808080;
 
   /* ---- Secondary Colors ---- */
-  --clr-secondary-blue-light: #5fafe0;
-  --clr-secondary-orange-dark: #e4591d;
-  --clr-secondary-green: #17b414;
+  --clr-secondary-blue-light: rgb(95, 175, 224);
+  --clr-secondary-orange-dark: rgb(228, 89, 29);
+  --clr-secondary-green: rgb(23, 180, 20);
+  --clr-secondary-gold: rgb(255, 215, 0);
 
   /* ---- Background Colors ---- */
   --bg-clr-base: azure;
