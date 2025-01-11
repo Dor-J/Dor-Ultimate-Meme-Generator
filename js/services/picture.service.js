@@ -40,6 +40,13 @@ function removePic(picId) {
 }
 
 //GET PICs BY KEYWORDS
+function getPictureByKeywords(keyword) {
+  const picturesByKeywords = gPictures.filter((pic) => {
+    return pic.keywords.includes(keyword)
+  })
+  return picturesByKeywords
+}
+
 function getAllUniqueKeywords() {
   const allKeywords = gPictures.reduce((acc, pic) => {
     const currKeywords = pic.keywords
