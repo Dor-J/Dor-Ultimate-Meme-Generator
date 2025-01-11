@@ -67,6 +67,19 @@ function _createPics() {
   pics.push(
     _createPic('../images/imgs/18.jpg', 'funny', 'toy story', 'everywhere')
   )
+  pics.push(
+    _createPic('../images/imgs/19.jpg', 'funny', 'what the hell', 'brooklyn')
+  )
+  pics.push(
+    _createPic('../images/imgs/20.jpg', 'landscape', 'dance', 'everywhere')
+  )
+  pics.push(_createPic('../images/imgs/21.jpg', 'dr evil', 'funny', 'quetes'))
+  pics.push(
+    _createPic('../images/imgs/22.jpg', 'opera', 'paycheck', 'laughing')
+  )
+  pics.push(_createPic('../images/imgs/23.jpg', 'dancing', 'funny', 'kid'))
+  pics.push(_createPic('../images/imgs/24.jpg', 'trump', 'victory', 'win'))
+  pics.push(_createPic('../images/imgs/25.jpg', 'cute', 'dog', 'strech'))
 
   return pics
 }
