@@ -28,8 +28,13 @@
 }
 
 .popup-container.hiddenX {
+  display: none;
   right: -100%;
   transform: translateX(100%);
+
+  .popup-close-btn {
+    display: none;
+  }
 }
 
 /* Close Button */
