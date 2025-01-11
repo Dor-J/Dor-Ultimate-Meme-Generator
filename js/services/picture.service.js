@@ -43,43 +43,37 @@ function removePic(picId) {
 function _createPics() {
   const pics = []
 
-  pics.push(_createPic('../images/imgs/1.jpg', 'funny', 'trump'))
-  pics.push(_createPic('../images/imgs/2.jpg', 'cute', 'dog'))
-  pics.push(_createPic('../images/imgs/3.jpg', 'cute', 'baby', 'dog'))
-  pics.push(_createPic('../images/imgs/4.jpg', 'cute', 'cat'))
-  pics.push(_createPic('../images/imgs/5.jpg', 'funny', 'success', 'kid'))
-  pics.push(_createPic('../images/imgs/6.jpg', 'funny', 'history', 'aliens'))
-  pics.push(_createPic('../images/imgs/7.jpg', 'funny', 'kid', 'eyes'))
-  pics.push(_createPic('../images/imgs/8.jpg', 'oh really', 'wonka'))
-  pics.push(_createPic('../images/imgs/9.jpg', 'laughing', 'kid'))
-  pics.push(_createPic('../images/imgs/10.jpg', 'laughing', 'obama'))
-  pics.push(_createPic('../images/imgs/11.jpg', 'akward', 'kiss', 'boxing'))
+  pics.push(_createPic('images/imgs/1.jpg', 'funny', 'trump'))
+  pics.push(_createPic('images/imgs/2.jpg', 'cute', 'dog'))
+  pics.push(_createPic('images/imgs/3.jpg', 'cute', 'baby', 'dog'))
+  pics.push(_createPic('images/imgs/4.jpg', 'cute', 'cat'))
+  pics.push(_createPic('images/imgs/5.jpg', 'funny', 'success', 'kid'))
+  pics.push(_createPic('images/imgs/6.jpg', 'funny', 'history', 'aliens'))
+  pics.push(_createPic('images/imgs/7.jpg', 'funny', 'kid', 'eyes'))
+  pics.push(_createPic('images/imgs/8.jpg', 'oh really', 'wonka'))
+  pics.push(_createPic('images/imgs/9.jpg', 'laughing', 'kid'))
+  pics.push(_createPic('images/imgs/10.jpg', 'laughing', 'obama'))
+  pics.push(_createPic('images/imgs/11.jpg', 'akward', 'kiss', 'boxing'))
+  pics.push(_createPic('images/imgs/12.jpg', 'funny', 'akward', 'haim hecht'))
+  pics.push(_createPic('images/imgs/13.jpg', 'success', 'decaprio'))
+  pics.push(_createPic('images/imgs/14.jpg', 'omnius', 'morphius', 'oh really'))
+  pics.push(_createPic('images/imgs/15.jpg', 'funny', 'lotr'))
+  pics.push(_createPic('images/imgs/16.jpg', 'laughing', 'startrek'))
+  pics.push(_createPic('images/imgs/17.jpg', 'serious', 'putin'))
   pics.push(
-    _createPic('../images/imgs/12.jpg', 'funny', 'akward', 'haim hecht')
-  )
-  pics.push(_createPic('../images/imgs/13.jpg', 'success', 'decaprio'))
-  pics.push(
-    _createPic('../images/imgs/14.jpg', 'omnius', 'morphius', 'oh really')
-  )
-  pics.push(_createPic('../images/imgs/15.jpg', 'funny', 'lotr'))
-  pics.push(_createPic('../images/imgs/16.jpg', 'laughing', 'startrek'))
-  pics.push(_createPic('../images/imgs/17.jpg', 'serious', 'putin'))
-  pics.push(
-    _createPic('../images/imgs/18.jpg', 'funny', 'toy story', 'everywhere')
+    _createPic('images/imgs/18.jpg', 'funny', 'toy story', 'everywhere')
   )
   pics.push(
-    _createPic('../images/imgs/19.jpg', 'funny', 'what the hell', 'brooklyn')
+    _createPic('images/imgs/19.jpg', 'funny', 'what the hell', 'brooklyn')
   )
   pics.push(
-    _createPic('../images/imgs/20.jpg', 'landscape', 'dance', 'everywhere')
+    _createPic('images/imgs/20.jpg', 'landscape', 'dance', 'everywhere')
   )
-  pics.push(_createPic('../images/imgs/21.jpg', 'dr evil', 'funny', 'quetes'))
-  pics.push(
-    _createPic('../images/imgs/22.jpg', 'opera', 'paycheck', 'laughing')
-  )
-  pics.push(_createPic('../images/imgs/23.jpg', 'dancing', 'funny', 'kid'))
-  pics.push(_createPic('../images/imgs/24.jpg', 'trump', 'victory', 'win'))
-  pics.push(_createPic('../images/imgs/25.jpg', 'cute', 'dog', 'strech'))
+  pics.push(_createPic('images/imgs/21.jpg', 'dr evil', 'funny', 'quetes'))
+  pics.push(_createPic('images/imgs/22.jpg', 'opera', 'paycheck', 'laughing'))
+  pics.push(_createPic('images/imgs/23.jpg', 'dancing', 'funny', 'kid'))
+  pics.push(_createPic('images/imgs/24.jpg', 'trump', 'victory', 'win'))
+  pics.push(_createPic('images/imgs/25.jpg', 'cute', 'dog', 'strech'))
 
   return pics
 }
