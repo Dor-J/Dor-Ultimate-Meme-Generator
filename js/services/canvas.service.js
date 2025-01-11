@@ -20,7 +20,7 @@ function getCurrentImage() {
 
 //SET
 function setCanvas() {
-  gElCanvas = document.querySelector('canvas')
+  gElCanvas = document.querySelector('.canvas-container canvas')
   gCtx = gElCanvas.getContext('2d')
 }
 

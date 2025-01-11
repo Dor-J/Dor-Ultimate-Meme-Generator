@@ -2,19 +2,25 @@
 'use strict'
 
 //IMAGE INPUT
-function onImgInput(ev) {
-  loadImageFromInput(ev, (img) => {
-    // render  meme
-    renderMeme(img)
+function onImgInput(fileInput) {
+  const file = fileInput.files[0]
+  if (!file) return
+
+  loadImageFromInput(file, (img) => {
+    // render meme
+    setCurrentImage(img)
+    renderMeme(img, true)
 
     const elCanvas = getElCanvas()
+    renderCanvas(true)
     const dataUrl = elCanvas.toDataURL('image/jpeg')
-
     addSavedPic(dataUrl)
+    renderMeme(img)
+    renderCanvas()
   })
 }
 
-function loadImageFromInput(ev, onImageReady) {
+function loadImageFromInput(file, onImageReady) {
   const reader = new FileReader()
 
   reader.onload = function (event) {
@@ -24,7 +30,7 @@ function loadImageFromInput(ev, onImageReady) {
     }
     img.src = event.target.result
   }
-  reader.readAsDataURL(ev.target.files[0])
+  reader.readAsDataURL(file)
 }
 
 // DOWNLOAD

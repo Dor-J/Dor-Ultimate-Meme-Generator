@@ -6,7 +6,7 @@ function onInitCanvas() {
 }
 
 function onResize() {
-  const elContainer = document.querySelector('.canvas-container')
+  const elContainer = document.querySelector('.main-editor .canvas-container')
   const elCanvas = getElCanvas()
 
   elCanvas.width = elContainer.clientWidth
@@ -19,12 +19,13 @@ function onResize() {
   renderCanvas()
 }
 
-function renderMeme(img) {
+function renderMeme(img, isNoLines = false) {
   const elCanvas = getElCanvas()
   const ctx = getCtx()
 
-  if (!getLines().length) {
+  if (!getLines().length && !isNoLines) {
     addDefaultLine()
+    updateEditorUI()
   }
 
   elCanvas.height = (img.naturalHeight / img.naturalWidth) * elCanvas.width
@@ -76,7 +77,7 @@ function onUp(ev) {
 }
 
 // RENDER
-function renderCanvas() {
+function renderCanvas(skipSelectionRectangle = false) {
   const elCanvas = getElCanvas()
   const ctx = getCtx()
 
@@ -94,7 +95,7 @@ function renderCanvas() {
   })
 
   const activeLine = getActiveLine()
-  if (activeLine) {
+  if (activeLine && !skipSelectionRectangle) {
     drawSelectionRectangle(activeLine, ctx)
   }
 }

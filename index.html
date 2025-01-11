@@ -70,6 +70,20 @@
           <div class="keywords-search flex f-ai-center f-gap-1 f-wrap">
             <p>Lorem ipsum dolor sit amet.</p>
           </div>
+          <label for="upload-filename"
+            >Upload image<img
+              src="images/svgs/file-import.svg"
+              alt="file import icon"
+              class="icon"
+          /></label>
+          <input
+            type="file"
+            id="upload-filename"
+            name="upload-filename"
+            accept="image/png, image/jpeg, image/jpeg"
+            class="btn btn-upload-image"
+            onchange="onUploadPic(event)"
+          />
         </div>
 
         <div class="pics-grid grid">

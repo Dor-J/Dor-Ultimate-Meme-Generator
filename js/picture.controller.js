@@ -48,8 +48,14 @@ function renderPics() {
 
 // UPLOAD NEW PIC
 function onUploadPic(ev) {
-  onImgInput(ev)
+  const fileInput = ev.target
+  if (!fileInput.files || !fileInput.files[0]) return
+
+  onImgInput(fileInput)
   renderSavedPics()
+  renderCanvas()
+  onNavGenerator()
+  onResize()
 }
 
 // REMOVE PIC
