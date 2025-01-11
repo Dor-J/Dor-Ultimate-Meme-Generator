@@ -18,13 +18,19 @@
       <nav class="main-nav">
         <ul class="nav-list flex f-ai-center f-jc-sb f-gap-1">
           <li class="nav-li pa-05">
-            <a href="#" class="nav-link nav-gallery">Gallery</a>
+            <a href="#pics-gallery-section" class="nav-link nav-gallery"
+              >Gallery</a
+            >
           </li>
           <li class="nav-li pa-05">
-            <a href="#" class="nav-link nav-generator">Generator</a>
+            <a href="#saved-section" class="nav-link nav-generator"
+              >Generator</a
+            >
           </li>
           <li class="nav-li pa-05">
-            <a href="#" class="nav-link nav-saved">Saved</a>
+            <a href="#meme-generator-section" class="nav-link nav-saved"
+              >Saved</a
+            >
           </li>
           <li class="nav-li pa-05">
             <a href="#about-section" class="nav-link nav-about">About</a>
@@ -44,7 +50,7 @@
     <main class="main-container" aria-label="main content">
       <h1>Super Duper Meme Generator</h1>
 
-      <section class="pics-gallery">
+      <section class="pics-gallery" id="pics-gallery-section">
         <div class="section-header">
           <h2>Pictures gallery</h2>
         </div>
@@ -120,7 +126,7 @@
         </div>
       </section>
 
-      <section class="saved hidden">
+      <section class="saved hidden" id="saved-section">
         <div class="section-header">
           <h2>Saved pictures</h2>
         </div>
@@ -143,7 +149,7 @@
         </div>
       </section>
 
-      <section class="meme-generator hidden">
+      <section class="meme-generator hidden" id="meme-generator-section">
         <div class="section-header">
           <h2>Ultimate Meme Generator</h2>
         </div>
@@ -376,7 +382,6 @@
     <script src="js/services/canvas.service.js" defer></script>
     <script src="js/services/editor.service.js" defer></script>
     <script src="js/services/picture.service.js" defer></script>
-    <script src="js/services/meme.service.js" defer></script>
     <script src="js/editor.controller.js" defer></script>
     <script src="js/picture.controller.js" defer></script>
     <script src="js/canvas.controller.js" defer></script>

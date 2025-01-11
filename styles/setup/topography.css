@@ -29,13 +29,3 @@
   font-family: Secular-Heb-Regular;
   src: url(/fonts/Secular_One/SecularOne-Regular.ttf);
 }
-
-/* font awesome (for emojies) */
-@font-face {
-  font-family: fa;
-  src: url(/fonts/fa/fa-brands-400.ttf);
-}
-
-.fa::before {
-  font-family: fa;
-}

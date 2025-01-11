@@ -40,9 +40,9 @@ function addEventListeners() {
     .addEventListener('click', onToggleMenu)
 
   // EDITOR
-  document
-    .querySelector('#text-input')
-    .addEventListener('input', () => onChangeText(textInput))
+  document.querySelector('#text-input').addEventListener('input', (ev) => {
+    onChangeText(ev.target)
+  })
 
   document
     .querySelector('.btn-switch-lines')
