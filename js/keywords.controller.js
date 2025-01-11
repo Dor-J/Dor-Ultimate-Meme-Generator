@@ -76,7 +76,7 @@ function onKeywordClicked(keyword) {
 
   const keywordsMap = getKeywordsMap()
   if (keywordsMap[keyword] !== undefined) {
-    keywordsMap[keyword] += 1
+    keywordsMap[keyword]++
   } else {
     // if not in map init it
     keywordsMap[keyword] = 2

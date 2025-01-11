@@ -34,15 +34,6 @@ function getPictureByKeywords(keyword) {
   return picturesByKeywords
 }
 
-function getAllUniqueKeywords() {
-  const allKeywords = gPictures.reduce((acc, pic) => {
-    const currKeywords = pic.keywords
-    acc.add(...currKeywords)
-    return acc
-  }, new Set())
-  return allKeywords
-}
-
 function getKeywordCountMap() {
   const keywordCountMap = gPictures.reduce((acc, pic) => {
     const currKeywords = pic.keywords
