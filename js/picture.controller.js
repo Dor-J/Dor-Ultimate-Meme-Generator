@@ -213,33 +213,3 @@ function onResetSearch() {
   searchInput.value = '' // Clear search input
   renderPics()
 }
-
-// KEYWORDS
-function renderKeywordsCanvas() {
-  const elContainer = document.querySelector('.keywords-search')
-  const elCanvas = document.querySelector('.keywords-canvas canvas')
-  const ctx = elCanvas.getContext('2d')
-  const keywordsMap = getKeywordCountMap()
-  const keywords = Object.keys(keywordsMap)
-
-  elCanvas.width = elContainer.clientWidth
-  elCanvas.height = 100
-
-  ctx.clearRect(0, 0, elCanvas.width, elCanvas.height)
-
-  const fontSizeBase = 10
-  let x = 10,
-    y = 10
-
-  keywords.forEach((keyword) => {
-    const fontSize = fontSizeBase + keywordsMap[keyword]
-    ctx.font = `${fontSize}px Arial`
-    ctx.fillStyle = 'black'
-    ctx.fillText(keyword, x, y)
-    x += ctx.measureText(keyword).width + 15
-    if (x > elCanvas.width - 50) {
-      x = 10
-      y += fontSize + 10
-    }
-  })
-}

@@ -25,6 +25,11 @@ function addEventListeners() {
     .querySelector('.nav-about')
     .addEventListener('click', closeToggleMenu)
 
+  //KEYWORDS
+  document
+    .querySelector('.keywords-canvas canvas')
+    .addEventListener('click', onKeywordCanvasClick)
+
   // CANVAS
   const elCanvas = document.querySelector('.canvas-container canvas')
   elCanvas.addEventListener('mousedown', onDown)
