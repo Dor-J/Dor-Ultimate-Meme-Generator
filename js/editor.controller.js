@@ -94,11 +94,23 @@ function onDeleteLine() {
   renderPopup('delete')
 }
 
+function onMoveLine(diffY) {
+  const activeLine = getActiveLine()
+  if (activeLine) {
+    activeLine.pos.y = Math.max(0, activeLine.pos.y + diffY)
+    renderCanvas()
+  } else {
+    renderPopup('No active line selected!')
+  }
+}
+
 function onUpdateLineSize(diff) {
   //diff: 1 , -1
   if (getActiveLine()) {
     updateActiveLineFontSize(diff)
     renderCanvas()
+  } else {
+    renderPopup('No active line selected!')
   }
 }
 

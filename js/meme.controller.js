@@ -60,6 +60,14 @@ function addEventListeners() {
     .addEventListener('click', onDeleteLine)
 
   document
+    .querySelector('.line-move-buttons .btn-move-line-up')
+    .addEventListener('click', () => onMoveLine(-10))
+
+  document
+    .querySelector('.line-move-buttons .btn-move-line-down')
+    .addEventListener('click', () => onMoveLine(10))
+
+  document
     .querySelector('.btn-increace-font')
     .addEventListener('click', () => onUpdateLineSize(1))
 

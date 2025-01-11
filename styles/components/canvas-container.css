@@ -3,6 +3,11 @@
   justify-items: center;
   width: 100%;
 }
+
+.canvas-container canvas {
+  max-width: 85vw;
+}
+
 .canvas-container canvas:hover {
   cursor: grab;
 }
