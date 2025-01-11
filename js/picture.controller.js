@@ -90,9 +90,34 @@ function onSelectPic(ev) {
     setCurrentImage(image)
     renderMeme(image)
   }
+  onNavGenerator()
+  onResize()
+}
+
+function onSelectPicById(picId) {
+  const pic = getPicById(picId)
+
+  let image = new Image()
+  const srcStr = pic.url
+  image.src = srcStr
+  image.onload = function () {
+    setCurrentImage(image)
+    renderMeme(image)
+  }
 
   onNavGenerator()
   onResize()
+}
+
+function onRandomMeme() {
+  const pics = getPics()
+  if (!pics) return
+
+  const randIdx = getRandomIntInclusive(0, pics.length - 1)
+  const randPic = pics.at(randIdx)
+  const editor = getEditor()
+  onSelectPicById(randPic.id)
+  onSetRandomText(wordCount)
 }
 
 ///////////////////////////////////////////////
@@ -194,14 +219,14 @@ function renderKeywordsCanvas() {
 
   const fontSizeBase = 10
   let x = 10,
-    y = 30
+    y = 10
 
   keywords.forEach((keyword) => {
     const fontSize = fontSizeBase + keywordsMap[keyword]
     ctx.font = `${fontSize}px Arial`
     ctx.fillStyle = 'black'
     ctx.fillText(keyword, x, y)
-    x += ctx.measureText(keyword).width + 20 // Move to next position
+    x += ctx.measureText(keyword).width + 15 // Move to next position
     if (x > elCanvas.width - 50) {
       x = 10
       y += fontSize + 10 // Move to next line

@@ -64,7 +64,7 @@ function getWord(isUpperCase) {
   let word = ''
 
   for (let i = 0; i <= length; i++) {
-    word += chars[Math.floor(Math.random() * (25 - 0 + 1) + 0)]
+    word += chars[Math.floor(Math.random() * (25 + 1) + 0)]
   }
 
   if (isUpperCase) word = word.charAt(0).toUpperCase() + word.substring(1)

@@ -82,6 +82,22 @@ li {
   padding: 0.5em;
 }
 
+.btn-random {
+  background-color: var(--clr-secondary-blue-light);
+}
+
+.btn-reset-filter {
+  background-color: var(--clr-secondary-blue-light);
+}
+
+.btn-display {
+  background-color: var(--clr-secondary-green);
+}
+
+.btn-remove {
+  background-color: var(--clr-secondary-orange-dark);
+}
+
 .card,
 .pic-display {
   border-radius: 2em;

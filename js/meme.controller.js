@@ -41,7 +41,7 @@ function addEventListeners() {
 
   // EDITOR
   document.querySelector('#text-input').addEventListener('input', (ev) => {
-    onChangeText(ev.target)
+    onSetText(ev.target)
   })
 
   document

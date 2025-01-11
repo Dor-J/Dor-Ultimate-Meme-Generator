@@ -56,8 +56,17 @@ function updateFontFamilyPicker(fontFamily) {
   }
 }
 
-function onChangeText(elTextInput) {
+function onSetText(elTextInput) {
   const text = elTextInput.value.trim()
+  if (!text) return
+  const line = getActiveLine()
+  if (line && line.type === 'text') {
+    updateActiveLineText(text)
+    renderCanvas()
+  }
+}
+function onSetRandomText(wordCount) {
+  const text = makeLorem(wordCount).trim()
   if (!text) return
   const line = getActiveLine()
   if (line && line.type === 'text') {
