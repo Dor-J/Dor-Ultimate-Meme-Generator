@@ -55,10 +55,7 @@
           <h2>Pictures gallery</h2>
         </div>
         <div class="picture-filter grid">
-          <form
-            onsubmit="()=>{event.preventDefault()}"
-            class="picture-search flex f-ai-center f-gap-1 f-wrap"
-          >
+          <form class="picture-search flex f-ai-center f-gap-1 f-wrap">
             <label for="meme-search">Search memes</label>
             <input
               type="search"
@@ -66,15 +63,16 @@
               name="meme-search"
               autocomplete="off"
             />
-
-            <input type="reset" value="Reset" onclick="onResetSearch(event)" />
+            <input type="reset" value="Reset" class="btn btn-reset-filter" />
           </form>
-          <div class="keywords-search flex f-ai-center">
+
+          <div class="keywords-search grid">
             <div class="keywords-canvas">
               <canvas width="200" height="50"></canvas>
             </div>
           </div>
-          <label for="upload-filename"
+
+          <label for="upload-filename" class="flex f-ai-center f-gap-1"
             >Upload image<img
               src="images/svgs/file-import.svg"
               alt="file import icon"
@@ -86,8 +84,8 @@
             name="upload-filename"
             accept="image/png, image/jpeg, image/jpeg"
             class="btn btn-upload-image"
-            onchange="onUploadPic(event)"
           />
+          <button type="button" class="btn btn-random">Random Meme!</button>
         </div>
 
         <div class="pics-grid grid">

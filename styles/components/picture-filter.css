@@ -1,0 +1,26 @@
+.picture-filter {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 1fr;
+  grid-auto-rows: min-content;
+  gap: 0.5em;
+
+  padding: 0.2em;
+  margin-block-end: 0.5em;
+
+  font-family: DMS-Regular;
+}
+.picture-filter .picture-search {
+  justify-content: space-between;
+  line-height: 1.5rem;
+}
+
+.picture-filter .keywords-search {
+  justify-self: center;
+  width: 100%;
+}
+
+.picture-filter #upload-filename {
+  text-align: center;
+}
