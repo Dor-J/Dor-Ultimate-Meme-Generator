@@ -15,6 +15,9 @@
   --bg-clr-secondary-1: lightgray;
   --bg-clr-secondary-2: lightslategray;
   --bg-clr-secondary-3: lightskyblue;
+  --bg-clr-secondary-4: #333;
+  --bg-clr-secondary-5: #555;
+  --bg-clr-secondary-6: #777;
 
   --bg-clr-overlay-1: rgba(184, 183, 183, 0.857);
   --bg-clr-overlay-2: rgba(0, 0, 0, 0.8);
@@ -31,4 +34,5 @@
   --box-shadow-secondary-1: inset 9px 0px 10px 1px rgba(11, 36, 200, 0.7);
   --box-shadow-secondary-2: inset 0px -6px 0px rgb(95, 175, 224);
   --box-shadow-secondary-3: inset 4px 4px 20px 0px rgba(25, 12, 169, 0.95);
+  --box-shadow-secondary-4: 20px -14px 6px 6px rgba(0, 0, 0, 0.2);
 }

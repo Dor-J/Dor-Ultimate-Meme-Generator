@@ -71,12 +71,14 @@ function onUploadPic(ev) {
   renderCanvas()
   onNavGenerator()
   onResize()
+  renderPopup('uploaded')
 }
 
 // REMOVE PIC
 function onRemovePic(ev) {
   removePic(ev.target.dataset.id)
   renderPics()
+  renderPopup('removed')
 }
 
 // SELECTED PIC TO CANVAS
@@ -92,6 +94,7 @@ function onSelectPic(ev) {
   }
   onNavGenerator()
   onResize()
+  renderPopup('selected')
 }
 
 function onSelectPicById(picId) {
@@ -104,7 +107,6 @@ function onSelectPicById(picId) {
     setCurrentImage(image)
     renderMeme(image)
   }
-
   onNavGenerator()
   onResize()
 }
@@ -117,7 +119,8 @@ function onRandomMeme() {
   const randPic = pics.at(randIdx)
   const editor = getEditor()
   onSelectPicById(randPic.id)
-  onSetRandomText(wordCount)
+  onSetRandomText(6)
+  renderPopup('random')
 }
 
 ///////////////////////////////////////////////
@@ -175,6 +178,7 @@ function renderSavedPics() {
 function onRemoveSavedPic(picId) {
   removeSavedPic(picId)
   renderSavedPics()
+  renderPopup('removed')
 }
 
 function onSelectSavedPic(picId) {
@@ -190,6 +194,7 @@ function onSelectSavedPic(picId) {
 
   onNavGenerator()
   onResize()
+  renderPopup('selected')
 }
 
 //////////////////////////////////////

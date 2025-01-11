@@ -10,6 +10,7 @@
 /* Components */
 @import url(components/main-header.css);
 @import url(components/backdrop.css);
+@import url(components/popup-container.css);
 @import url(components/nav-link.css);
 @import url(components/icon.css);
 @import url(components/section-header.css);

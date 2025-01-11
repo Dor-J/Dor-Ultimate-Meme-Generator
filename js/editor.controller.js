@@ -85,11 +85,13 @@ function onAddLine() {
   addNewLine()
   updateEditorUI()
   renderCanvas()
+  renderPopup('add')
 }
 
 function onDeleteLine() {
   deleteActiveLine()
   renderCanvas()
+  renderPopup('delete')
 }
 
 function onUpdateLineSize(diff) {
