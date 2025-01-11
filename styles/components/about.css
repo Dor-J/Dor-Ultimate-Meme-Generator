@@ -21,11 +21,7 @@ section.about {
   height: 100%;
 }
 
-.about-container .about-me h3 {
-  margin-block-end: 1em;
-}
-
 .about-container .about-me p {
   color: var(--clr-primary-white);
-  margin-inline: 1em;
+  margin-inline: 0.5em;
 }

@@ -100,6 +100,14 @@
     width: 100%;
   }
 
+  .about-container .about-me h3 {
+    margin-block-end: 1em;
+  }
+
+  .about-container .about-me p {
+    margin-inline: 1em;
+  }
+
   .pics-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
