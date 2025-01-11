@@ -194,7 +194,7 @@ function onSelectSavedPic(picId) {
 
 //////////////////////////////////////
 
-// filter and Keywords
+// FILTER
 function onSearchPics(ev) {
   const keyword = ev.target.value.trim().toLowerCase()
   if (!keyword) return renderPics() // If empty, render all pictures
@@ -209,6 +209,7 @@ function onResetSearch() {
   renderPics()
 }
 
+// KEYWORDS
 function renderKeywordsCanvas() {
   const elContainer = document.querySelector('.keywords-search')
   const elCanvas = document.querySelector('.keywords-canvas canvas')
@@ -230,10 +231,10 @@ function renderKeywordsCanvas() {
     ctx.font = `${fontSize}px Arial`
     ctx.fillStyle = 'black'
     ctx.fillText(keyword, x, y)
-    x += ctx.measureText(keyword).width + 15 // Move to next position
+    x += ctx.measureText(keyword).width + 15
     if (x > elCanvas.width - 50) {
       x = 10
-      y += fontSize + 10 // Move to next line
+      y += fontSize + 10
     }
   })
 }

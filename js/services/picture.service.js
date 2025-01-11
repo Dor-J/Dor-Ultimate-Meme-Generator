@@ -5,6 +5,7 @@ const STORAGE_KEY_PIC = 'picMemeDB'
 const STORAGE_KEY_SAVED = 'savedMemeDB'
 var gPictures = loadFromStorage(STORAGE_KEY_PIC) || []
 var gSavedPictures = loadFromStorage(STORAGE_KEY_SAVED) || []
+var gKeywordsMap = {}
 
 //GET PICS
 function getPics() {
@@ -152,4 +153,11 @@ function getKeywordCountMap() {
     return acc
   }, {})
   return keywordCountMap
+}
+
+function getKeyboardMap() {
+  if (!gKeywordsMap || gKeywordsMap.length !== 0) {
+    gKeywordsMap = getKeywordCountMap()
+  }
+  return gKeywordsMap
 }
