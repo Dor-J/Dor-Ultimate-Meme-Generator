@@ -6,9 +6,6 @@
 
 .canvas-container canvas {
   max-width: 85vw;
-  pointer-events: auto;
-  position: relative;
-  z-index: 10;
 }
 
 .canvas-container canvas:hover {

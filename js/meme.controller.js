@@ -35,8 +35,8 @@ function addEventListeners() {
   elCanvas.addEventListener('mousedown', onDown)
   elCanvas.addEventListener('mousemove', onMove)
   elCanvas.addEventListener('mouseup', onUp)
-  elCanvas.addEventListener('touchstart', onDown)
-  elCanvas.addEventListener('touchmove', onMove)
+  elCanvas.addEventListener('touchstart', onDown, { passive: false })
+  elCanvas.addEventListener('touchmove', onMove, { passive: false })
   elCanvas.addEventListener('touchend', onUp)
 
   // TOGGLE BTN
