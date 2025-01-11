@@ -112,6 +112,20 @@ function addEventListeners() {
   document
     .querySelector('#meme-search')
     .addEventListener('input', (event) => onSearchPics(event))
+
+  document
+    .querySelector('.picture-filter form')
+    .addEventListener('submit', (event) => event.preventDefault())
+
+  document
+    .querySelector('.picture-filter .btn-reset-filter')
+    .addEventListener('click', (event) => onResetSearch(event))
+
+  document
+    .querySelector('#upload-filename')
+    .addEventListener('change', (event) => onUploadPic(event))
+
+  document.querySelector('.btn-random').addEventListener('click', onRandomMeme)
 }
 
 function onToggleMenu() {

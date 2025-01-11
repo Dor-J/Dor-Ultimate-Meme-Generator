@@ -17,6 +17,7 @@ function onResize() {
   }
 
   renderCanvas()
+  renderKeywordsCanvas()
 }
 
 function renderMeme(img, isNoLines = false) {

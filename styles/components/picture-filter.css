@@ -19,6 +19,8 @@
 .picture-filter .keywords-search {
   justify-self: center;
   width: 100%;
+
+  max-width: 90vw;
 }
 
 .picture-filter #upload-filename {

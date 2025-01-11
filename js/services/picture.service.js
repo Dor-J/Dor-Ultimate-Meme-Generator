@@ -39,34 +39,6 @@ function removePic(picId) {
   _savePicsToStorage()
 }
 
-//GET PICs BY KEYWORDS
-function getPictureByKeywords(keyword) {
-  const picturesByKeywords = gPictures.filter((pic) => {
-    return pic.keywords.includes(keyword)
-  })
-  return picturesByKeywords
-}
-
-function getAllUniqueKeywords() {
-  const allKeywords = gPictures.reduce((acc, pic) => {
-    const currKeywords = pic.keywords
-    acc.add(...currKeywords)
-    return acc
-  }, new Set())
-  return allKeywords
-}
-
-function getKeywordCountMap() {
-  const keywordCountMap = gPictures.reduce((acc, pic) => {
-    const currKeywords = pic.keywords
-    currKeywords.forEach((keyword) => {
-      acc[keyword] = (acc[keyword] || 0) + 1
-    })
-    return acc
-  }, {})
-  return keywordCountMap
-}
-
 //CREATE SAMPLE PICs
 function _createPics() {
   const pics = []
@@ -148,4 +120,36 @@ function _createSavedPic(data) {
 
 function _saveSavedPicsToStorage() {
   saveToStorage(STORAGE_KEY_SAVED, gSavedPictures)
+}
+
+/////////////////////////////////////////
+// KEYWORDS FILTER
+//GET PICs BY KEYWORDS
+function getPictureByKeywords(keyword) {
+  const searchTerm = keyword.trim().toLowerCase()
+  const picturesByKeywords = gPictures.filter((pic) => {
+    // return pic.keywords.includes(keyword) // less fuzzy
+    return pic.keywords.some((kw) => kw.toLowerCase().includes(searchTerm))
+  })
+  return picturesByKeywords
+}
+
+function getAllUniqueKeywords() {
+  const allKeywords = gPictures.reduce((acc, pic) => {
+    const currKeywords = pic.keywords
+    acc.add(...currKeywords)
+    return acc
+  }, new Set())
+  return allKeywords
+}
+
+function getKeywordCountMap() {
+  const keywordCountMap = gPictures.reduce((acc, pic) => {
+    const currKeywords = pic.keywords
+    currKeywords.forEach((keyword) => {
+      acc[keyword] = (acc[keyword] || 0) + 1
+    })
+    return acc
+  }, {})
+  return keywordCountMap
 }

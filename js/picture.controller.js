@@ -210,10 +210,14 @@ function onResetSearch() {
 }
 
 function renderKeywordsCanvas() {
+  const elContainer = document.querySelector('.keywords-search')
   const elCanvas = document.querySelector('.keywords-canvas canvas')
   const ctx = elCanvas.getContext('2d')
   const keywordsMap = getKeywordCountMap()
   const keywords = Object.keys(keywordsMap)
+
+  elCanvas.width = elContainer.clientWidth
+  elCanvas.height = 100
 
   ctx.clearRect(0, 0, elCanvas.width, elCanvas.height)
 
