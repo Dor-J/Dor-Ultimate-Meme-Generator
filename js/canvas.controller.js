@@ -43,6 +43,8 @@ function onClearCanvas() {
 
 // CANVAS INTERACTIONS
 function onDown(ev) {
+  ev.preventDefault()
+
   const pos = getEvPos(ev)
   if (!isLinesClicked(pos)) return
 
@@ -56,6 +58,8 @@ function onDown(ev) {
 }
 
 function onMove(ev) {
+  ev.preventDefault()
+
   const pos = getEvPos(ev)
   const line = getActiveLine()
 
@@ -71,6 +75,8 @@ function onMove(ev) {
 }
 
 function onUp(ev) {
+  ev.preventDefault()
+
   const line = getActiveLine()
   if (line) setLineDrag(false, line.id)
 
