@@ -229,6 +229,11 @@
     }
   }
 
+  .editor-container .editor .text-input-container .text-input {
+    line-height: 1.8rem;
+    font-size: 1.3rem;
+  }
+
   .emoji-container {
     font-size: 2rem;
   }
@@ -329,6 +334,12 @@
 
     padding: 0.3em;
   }
+
+  .editor-container .editor .text-input-container .text-input {
+    line-height: 2rem;
+    font-size: 1.3rem;
+  }
+
   .font-editors-container .btn-font.stroke-color-input,
   .font-editors-container .btn-font.fill-color-input {
     height: 3em;

@@ -30,10 +30,24 @@
   width: 100%;
   min-height: 30px;
   text-align: left;
+  line-height: 1.5rem;
+  font-size: 1rem;
 }
 
 .editor-container .editor .text-input-container .text-input-label {
   line-height: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.editor-container .editor .save-container {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  flex-wrap: wrap;
 }
 
 .editor-container .editor .save-container a {
@@ -41,7 +55,8 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  flex-wrap: wrap;
+  gap: 0.5em;
+  background-color: var(--clr-secondary-blue-light);
 }
 
 .font-editors-container .btn-font {
