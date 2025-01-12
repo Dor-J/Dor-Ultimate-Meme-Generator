@@ -87,11 +87,9 @@
   .main-layout {
     grid-template-columns: 0.1fr 1fr 0.1fr;
   }
-  .main-layout > .full {
-    grid-column: 1/-1;
-  }
-  .main-layout > *:not(.full) {
-    grid-column: 2;
+
+  h1 {
+    font-size: 2.5rem;
   }
 
   .main-header {
@@ -119,7 +117,16 @@
     grid-auto-rows: auto;
     grid-gap: 0.5rem;
     grid-auto-flow: dense;
-    padding: 0.5;
+    padding: 0.5em;
+  }
+
+  .picture-filter {
+    gap: 1em;
+
+    padding: 0.5em;
+    margin-block-end: 1em;
+
+    font-family: DMS-Regular;
   }
 
   .main-editor {
@@ -202,6 +209,9 @@
     }
   }
 
+  h1 {
+    font-size: 3rem;
+  }
   .pics-grid {
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: auto;
