@@ -12,6 +12,10 @@ section.pics-gallery .pics-grid {
 .pics-grid .card img {
   border-radius: 1em;
   cursor: pointer;
+  transition: scale 0.5s ease-in-out;
+}
+.pics-grid .card img:hover {
+  scale: 1.1;
 }
 
 .pics-grid .card.card-pic {
@@ -28,5 +32,12 @@ section.pics-gallery .pics-grid {
 
 .pic-display canvas {
   border-radius: 2em;
-  border: 3px solid var(--clr-primary-gray);
+  border: 2px solid var(--clr-primary-gray);
+  cursor: pointer;
+
+  transition: scale 0.5s ease-in-out;
+}
+
+.pic-display canvas:hover {
+  scale: 1.05;
 }

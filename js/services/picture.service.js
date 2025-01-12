@@ -78,7 +78,7 @@ function _createPics() {
   return pics
 }
 
-//CREATE SAMPLE PICs
+//CREATE PIC
 function _createPic(url, ...keywords) {
   return { id: makeId(6), url, keywords, type: 'image' }
 }

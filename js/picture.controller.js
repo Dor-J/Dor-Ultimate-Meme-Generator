@@ -32,7 +32,7 @@ function renderPics(filteredPics = null) {
     .map((pic, idx) => {
       return `
           <article class="card card-pic">
-            <div class="pic-holder ma-bl-en-05">
+            <div class="pic-holder">
               <img src="${pic.url}" 
               alt="${idx + 1}" 
               data-idx="${idx}" 
@@ -194,7 +194,7 @@ function onSearchPics(ev) {
   const keyword = ev.target.value.trim().toLowerCase()
   if (!keyword) return renderPics() // If empty, render all pictures
 
-  const filteredPics = getPictureByKeywords(keyword)
+  const filteredPics = getPicByKeywords(keyword)
   renderPics(filteredPics)
 }
 
