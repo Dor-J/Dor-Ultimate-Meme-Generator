@@ -119,9 +119,9 @@ function resetEditorState() {
     ...gEditor,
     text: '',
     fontSize: 20,
-    fontFamily: 'Arial',
+    fontFamily: 'Impact',
     strokeColor: '#000000',
-    fillColor: '#FFFFFF',
+    fillColor: '#ffffff',
     alignment: 'center',
     activeLineId: null,
   }
@@ -144,7 +144,7 @@ function _createEditor() {
     // Defaults
     text: 'example text',
     fontSize: 20,
-    fontFamily: 'Arial',
+    fontFamily: 'Impact',
     strokeColor: '#000000',
     fillColor: '#FFFFFF',
     alignment: 'center',
