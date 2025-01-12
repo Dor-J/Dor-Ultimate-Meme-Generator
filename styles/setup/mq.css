@@ -99,18 +99,6 @@
     }
   }
 
-  section.about {
-    width: 100%;
-  }
-
-  .about-container .about-me h3 {
-    margin-block-end: 1em;
-  }
-
-  .about-container .about-me p {
-    margin-inline: 1em;
-  }
-
   .pics-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -249,15 +237,13 @@
 
   /* styles/components/about.css */
   .about-container {
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 1fr;
     place-items: center;
-    grid-template-rows: 150px;
-
+    grid-template-rows: auto;
     padding: 1em;
-    border-radius: 2em;
 
     img {
-      max-width: 120px;
+      max-width: 8em;
     }
   }
 
