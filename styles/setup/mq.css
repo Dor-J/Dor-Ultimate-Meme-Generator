@@ -110,11 +110,7 @@
 
   .picture-filter {
     gap: 1em;
-
     padding: 0.5em;
-    margin-block-end: 1em;
-
-    font-family: DMS-Regular;
   }
 
   .main-editor {

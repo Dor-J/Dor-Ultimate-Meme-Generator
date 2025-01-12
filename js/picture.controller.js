@@ -123,7 +123,11 @@ function renderSavedPics() {
       return `
           <div class="pic-display">
             <div class="pic-container grid g-pi-center ma-bl-en-05">
-              <canvas width="220" height="220" data-id="${pic.id}"></canvas>
+              <canvas width="220" 
+              height="220" 
+              data-id="${pic.id}" 
+              onclick="onSelectSavedPic('${pic.id}')">
+              </canvas>
             </div>
             <div class="pic-btns flex f-ai-center f-jc-center f-gap-05">
               <button type="button" 
