@@ -57,20 +57,25 @@
   justify-content: space-around;
   gap: 0.5em;
   background-color: var(--clr-secondary-blue-light);
+
+  transition: background-color 0.3s ease-in-out;
+  &:hover {
+    background-color: var(--clr-secondary-blue-light-1);
+  }
 }
 
 .font-editors-container .btn-font {
   color: var(--clr-primary-black);
   background-color: var(--bg-clr-overlay-1);
   border: 1px solid var(--clr-primary-black);
-}
 
-.font-editors-container .btn-font.stroke-color-icon {
-  color: rgb(23, 180, 20);
-}
-
-.font-editors-container .btn-font.fill-color-icon {
-  color: var(--clr-secondary-blue-light);
+  transition: scale 0.5s ease-in-out, background-color 0.3s ease-in-out;
+  &:hover {
+    background-color: var(--bg-clr-overlay-8);
+  }
+  &:active {
+    scale: 0.9;
+  }
 }
 
 .font-editors-container .btn-font.stroke-color-input,
@@ -87,6 +92,11 @@
   white-space: pre;
   text-overflow: ellipsis;
   width: 100%;
+
+  transition: background-color 0.3s ease-in-out;
+  &:hover {
+    background-color: var(--bg-clr-overlay-8);
+  }
 
   option {
     cursor: pointer;

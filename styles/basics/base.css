@@ -70,6 +70,11 @@ li {
   border-radius: 0.5em;
   padding: 0.3em;
   cursor: pointer;
+
+  transition: background-color 0.3s ease-in-out;
+  &:hover {
+    background-color: var(--bg-clr-overlay-8);
+  }
 }
 
 .btn-font {
@@ -85,18 +90,38 @@ li {
 
 .btn-random {
   background-color: var(--clr-secondary-blue-light);
+
+  transition: background-color 0.3s ease-in-out;
+  &:hover {
+    background-color: var(--clr-secondary-blue-light-1);
+  }
 }
 
 .btn-reset-filter {
   background-color: var(--clr-secondary-blue-light);
+
+  transition: background-color 0.3s ease-in-out;
+  &:hover {
+    background-color: var(--clr-secondary-blue-light-1);
+  }
 }
 
 .btn-display {
   background-color: var(--clr-secondary-green);
+
+  transition: background-color 0.3s ease-in-out;
+  &:hover {
+    background-color: var(--clr-secondary-green-1);
+  }
 }
 
 .btn-remove {
   background-color: var(--clr-secondary-orange-dark);
+
+  transition: background-color 0.3s ease-in-out;
+  &:hover {
+    background-color: var(--clr-secondary-orange-dark-1);
+  }
 }
 
 .hidden {

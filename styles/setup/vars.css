@@ -6,8 +6,11 @@
 
   /* ---- Secondary Colors ---- */
   --clr-secondary-blue-light: rgb(95, 175, 224);
+  --clr-secondary-blue-light-1: rgb(41, 154, 224);
   --clr-secondary-orange-dark: rgb(228, 89, 29);
+  --clr-secondary-orange-dark-1: rgb(190, 75, 26);
   --clr-secondary-green: rgb(23, 180, 20);
+  --clr-secondary-green-1: rgb(20, 154, 18);
   --clr-secondary-gold: rgb(255, 215, 0);
 
   /* ---- Background Colors ---- */
