@@ -1,8 +1,8 @@
 /* main layout */
 .main-layout {
-  width: 100%;
   display: grid;
-  grid-template-columns: 10px 1fr 10px;
+  width: 100%;
+  grid-template-columns: 20px 1fr 20px;
   place-items: center;
   justify-content: center;
 }
