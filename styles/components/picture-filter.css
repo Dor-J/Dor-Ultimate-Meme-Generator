@@ -25,5 +25,11 @@
 }
 
 .picture-filter #upload-filename {
+  cursor: pointer;
+  max-width: 200px;
   text-align: center;
+}
+
+.picture-filter label {
+  cursor: pointer;
 }
