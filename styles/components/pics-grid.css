@@ -1,0 +1,32 @@
+section.pics-gallery .pics-grid {
+  background-color: var(--bg-clr-secondary-2);
+  box-shadow: var(--box-shadow-primary-2);
+  border: 3px solid var(--clr-primary-gray);
+  border-radius: 1em;
+}
+
+.pics-grid .card {
+  padding: 1em;
+}
+
+.pics-grid .card img {
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.pics-grid .card.card-pic {
+  place-items: center;
+  align-content: center;
+}
+
+.pic-display {
+  border-radius: 2em;
+  padding: 1em;
+  background-color: var(--bg-clr-secondary-2);
+  box-shadow: var(--box-shadow-primary-2);
+}
+
+.pic-display canvas {
+  border-radius: 2em;
+  border: 3px solid var(--clr-primary-gray);
+}
