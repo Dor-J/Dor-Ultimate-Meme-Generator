@@ -50,7 +50,7 @@
     min-height: 0;
 
     li {
-      border-block-end: 2px solid #fff;
+      border-block-end: 2px solid var(--clr-primary-white);
       box-shadow: var(--box-shadow-secondary-3);
       width: 100%;
       &:hover {
@@ -59,7 +59,7 @@
       }
 
       a {
-        color: #fff;
+        color: var(--clr-primary-white);
         box-shadow: none;
         padding: 0.2em 1.6em;
 
@@ -358,8 +358,8 @@
   .icon.icon-repeat,
   .icon.icon-square-plus,
   .icon.icon-trash-can {
-    max-width: 3em;
-    max-height: 3em;
+    max-width: 2.5em;
+    max-height: 2.5em;
   }
   .icon.icon-palette,
   .icon.icon-brush,
