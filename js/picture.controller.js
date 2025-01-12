@@ -33,25 +33,11 @@ function renderPics(filteredPics = null) {
       return `
           <article class="card card-pic">
             <div class="pic-holder ma-bl-en-05">
-              <img src="${pic.url}" alt="${idx + 1}" />
-            </div>
-            <div class="pic-btns flex f-ai-center f-jc-center f-gap-05">
-              <button 
-              type="button" 
+              <img src="${pic.url}" 
+              alt="${idx + 1}" 
               data-idx="${idx}" 
               data-id="${pic.id}" 
-              class="btn btn-display" 
               onclick="onSelectPic(event)">
-                Display
-              </button>
-              <button 
-              type="button" 
-              data-idx="${idx}" 
-              data-id="${pic.id}" 
-              class="btn btn-remove" 
-              onclick="onRemovePic(event)">
-                Remove
-              </button>
             </div>
           </article>`
     })
@@ -76,6 +62,7 @@ function onUploadPic(ev) {
 
 // REMOVE PIC
 function onRemovePic(ev) {
+  // not in use
   removePic(ev.target.dataset.id)
   renderPics()
   renderPopup('removed')

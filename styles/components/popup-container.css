@@ -1,10 +1,12 @@
 .popup-container {
   position: absolute;
   top: 40px;
-  right: -100%; /* hide off-screen  */
+
   width: 300px;
 
-  display: grid;
+  display: none;
+  opacity: 0;
+
   place-items: center;
   gap: 1em;
 
@@ -14,39 +16,74 @@
   border-radius: 2em;
   box-shadow: var(--box-shadow-secondary-4);
   transform: translateX(0);
-  transition: transform 0.5s ease-in-out, right 0.5s ease-in-out;
   z-index: 1000;
+
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Keyframe for sliding out */
+@keyframes slideFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  25% {
+    opacity: 0.75;
+    transform: translateX(25%);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(50%);
+  }
+  75% {
+    opacity: 0.25;
+    transform: translateX(75%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
 }
 
 .popup-container.show {
   right: 40px;
-  transform: translateX(0);
-
-  .popup-close-btn {
-    display: block;
-  }
+  display: grid;
+  animation: slideFadeIn 0.5s forwards;
 }
 
-.popup-container.hiddenX {
-  display: none;
-  right: -100%;
-  transform: translateX(100%);
-
-  .popup-close-btn {
-    display: none;
-  }
+.popup-container.hide {
+  animation: slideFadeOut 0.5s forwards;
+  right: 0;
 }
 
-/* Close Button */
-.popup-close-btn {
-  display: none;
-  margin-top: 10px;
+.popup-container .popup-close-btn {
+  margin-block-start: 10px;
   background-color: var(--bg-clr-secondary-5);
   border: none;
   color: var(--clr-primary-white);
   text-align: center;
-}
 
-.popup-close-btn:hover {
-  background-color: var(--bg-clr-secondary-6);
+  &:hover {
+    background-color: var(--bg-clr-secondary-6);
+  }
 }

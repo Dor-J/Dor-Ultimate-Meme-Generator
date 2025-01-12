@@ -3,7 +3,7 @@
 let popupTimeoutId = null //to avoid conflicts
 
 function renderPopup(status) {
-  //status: add, delete, save, download,uploaded
+  //status: string name of event
   let headerMessage = ''
   let message = ''
 
@@ -57,19 +57,22 @@ function renderPopup(status) {
 }
 
 function showPopup(header, message, timeout = 3000) {
-  const popupContainer = document.querySelector('.popup-container')
-  const popupMessage = document.querySelector('.popup-message')
-  const popupHeader = document.querySelector('.popup-header')
+  const elPopupContainer = document.querySelector('.popup-container')
+  const elPopupHeader = document.querySelector('.popup-header')
+  const elPopupMessage = document.querySelector('.popup-message')
 
-  popupHeader.textContent = header
-  popupMessage.textContent = message
+  elPopupHeader.textContent = header
+  elPopupMessage.textContent = message
 
   if (popupTimeoutId) {
     clearTimeout(popupTimeoutId)
   }
 
-  popupContainer.classList.remove('hiddenX')
-  popupContainer.classList.add('show')
+  elPopupContainer.style.display = 'grid'
+
+  elPopupContainer.classList.remove('hidden')
+  elPopupContainer.classList.remove('hide')
+  elPopupContainer.classList.add('show')
 
   popupTimeoutId = setTimeout(() => {
     closePopup()
@@ -77,8 +80,14 @@ function showPopup(header, message, timeout = 3000) {
 }
 
 function closePopup() {
-  const popupContainer = document.querySelector('.popup-container')
+  const elPopupContainer = document.querySelector('.popup-container')
 
-  popupContainer.classList.remove('show')
-  popupContainer.classList.add('hidden')
+  elPopupContainer.classList.remove('show')
+  elPopupContainer.classList.add('hide')
+  setTimeout(() => {
+    const elPopupContainer = document.querySelector('.popup-container')
+    elPopupContainer.classList.remove('hide')
+    elPopupContainer.style.display = 'none'
+    elPopupContainer.classList.add('hidden')
+  }, 1000)
 }
