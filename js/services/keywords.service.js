@@ -23,15 +23,15 @@ function getKeywordsMap() {
   return gKeywordsMap
 }
 
-function getPictureByKeywords(keyword) {
+function getPicByKeywords(keyword) {
   const searchTerm = keyword.trim().toLowerCase()
-  const picturesByKeywords = gPictures.filter((pic) => {
+  const picsByKeywords = gPictures.filter((pic) => {
     // return pic.keywords.includes(keyword) // less fuzzy
     return pic.keywords.some((keywordItem) =>
       keywordItem.toLowerCase().includes(searchTerm)
     )
   })
-  return picturesByKeywords
+  return picsByKeywords
 }
 
 function getKeywordCountMap() {

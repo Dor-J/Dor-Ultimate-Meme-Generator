@@ -4,18 +4,20 @@
 function renderKeywordsCanvas() {
   const elContainer = document.querySelector('.keywords-search')
   const elCanvas = document.querySelector('.keywords-canvas canvas')
+
   const ctx = elCanvas.getContext('2d')
   const keywordsMap = getKeywordsMap()
   const keywords = Object.keys(keywordsMap)
 
   elCanvas.width = elContainer.clientWidth
-  elCanvas.height = 100
+
+  elCanvas.height = getKeywordCanvasHeight()
 
   ctx.clearRect(0, 0, elCanvas.width, elCanvas.height)
 
   const fontSizeBase = 10
   let x = 10,
-    y = 10
+    y = 20
 
   clearKeywordBoxes()
 
@@ -46,6 +48,28 @@ function renderKeywordsCanvas() {
 
     x += textWidth + 15
   })
+}
+
+function getKeywordCanvasHeight() {
+  const elBody = document.body
+  const bodyWidth = elBody.clientWidth
+
+  let height = 50
+  if (bodyWidth >= 1200) {
+    height = 60
+  } else if (bodyWidth < 1200 && bodyWidth >= 750) {
+    height = 80
+  } else if (bodyWidth < 750 && bodyWidth >= 600) {
+    height = 100
+  } else if (bodyWidth < 600 && bodyWidth >= 450) {
+    height = 120
+  } else if (bodyWidth < 450 && bodyWidth >= 350) {
+    height = 140
+  } else if (bodyWidth < 450 && bodyWidth >= 350) {
+    height = 160
+  } else height = 160
+
+  return height
 }
 
 function onKeywordCanvasClick(ev) {

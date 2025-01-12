@@ -148,6 +148,8 @@ function onToggleMenu() {
 function onNavGallery() {
   hideAllSections()
   document.querySelector('section.pics-gallery').classList.remove('hidden')
+  onResetSearch()
+  renderKeywordsCanvas()
 }
 
 function onNavGenerator() {
