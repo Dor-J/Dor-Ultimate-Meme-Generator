@@ -7,14 +7,17 @@
   gap: 0.5em;
 
   padding: 0.2em;
-  margin-block-end: 0.5em;
 
   font-family: DMS-Regular;
 }
 
 .picture-filter .picture-search {
-  justify-content: space-between;
   line-height: 1.5rem;
+  height: 35px;
+}
+
+#meme-search {
+  height: 30px;
 }
 
 .picture-filter .keywords-search {
@@ -22,6 +25,10 @@
   width: 100%;
 
   max-width: 90vw;
+}
+
+.picture-filter .keywords-canvas canvas {
+  cursor: pointer;
 }
 
 .picture-filter #upload-filename {

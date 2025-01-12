@@ -246,6 +246,10 @@
     }
   }
 
+  .social-links {
+    grid-column: span 2;
+  }
+
   .icon {
     max-width: 2em;
     max-height: 2em;

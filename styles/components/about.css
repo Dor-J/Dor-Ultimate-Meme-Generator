@@ -22,13 +22,34 @@ section.about {
   display: flex;
   flex-direction: column;
   padding: 1em;
+  gap: 1em;
 
   color: var(--clr-primary-white);
 }
 
 .about-container .about-me h3 {
   letter-spacing: 2px;
+  font-weight: 600;
 }
+
 .about-container .about-me p {
   color: var(--clr-primary-white);
+}
+
+.social-links a {
+  color: var(--clr-primary-white);
+  font-family: DMS;
+  cursor: pointer;
+  text-decoration: none;
+
+  transition: scale 0.5s ease;
+  &:hover {
+    scale: 1.2;
+    text-decoration: underline;
+  }
+}
+
+.social-links h4 {
+  color: var(--clr-primary-white);
+  font-weight: 500;
 }
