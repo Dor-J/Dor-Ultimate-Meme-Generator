@@ -121,7 +121,7 @@ function renderLine(line, ctx) {
   } = line
 
   if (type === 'text') {
-    //getting text width and height
+    // getting text width and height
     const textWidth = ctx.measureText(text).width
     const textHeight = fontSize * 1.2
     line.width = textWidth
@@ -151,10 +151,6 @@ function renderLine(line, ctx) {
     ctx.textAlign = 'center'
     ctx.textBaseline = 'middle'
     ctx.fillText(text, pos.x, pos.y)
-    // regular circle
-    // ctx.arc(pos.x, pos.y, fontSize * 2, 0, 2 * Math.PI)
-    // ctx.strokeStyle = strokeColor
-    // ctx.stroke()
   }
 }
 
@@ -189,14 +185,6 @@ function drawTextLine(ctx, line, x, y, alignment) {
   ctx.strokeText(line, x, y)
 }
 
-function onResizeEmoji(diff) {
-  const line = getActiveLine()
-  if (line && line.type === 'circle') {
-    line.size = Math.max(10, line.size + diff) // min size set 10
-    renderCanvas()
-  }
-}
-
 // DRAW FUNCTIONS
 
 function drawSelectionRectangle(line, ctx) {
@@ -207,7 +195,7 @@ function drawSelectionRectangle(line, ctx) {
   ctx.lineWidth = 1
 
   if (type === 'text') {
-    // Text selection rectangle
+    // selection rectangle
     const textWidth = ctx.measureText(line.text).width
     const textHeight = !multiLineHight ? fontSize : multiLineHight
     ctx.strokeRect(
@@ -217,9 +205,9 @@ function drawSelectionRectangle(line, ctx) {
       textHeight + 15
     )
   } else if (type === 'circle') {
-    // Circle selection circle
-    const selectionRadius = size + 5 // Add padding to the size
-    ctx.arc(pos.x, pos.y, selectionRadius, 0, 2 * Math.PI) // Full circle
+    // selection circle
+    const selectionRadius = size + 5 //  padding
+    ctx.arc(pos.x, pos.y, selectionRadius, 0, 2 * Math.PI)
     ctx.stroke()
   }
 
