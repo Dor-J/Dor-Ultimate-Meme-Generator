@@ -68,9 +68,8 @@ function showPopup(header, message, timeout = 3000) {
     clearTimeout(popupTimeoutId)
   }
 
-  elPopupContainer.style.display = 'grid'
-
   elPopupContainer.classList.remove('hidden')
+  elPopupContainer.style.display = 'grid'
   elPopupContainer.classList.remove('hide')
   elPopupContainer.classList.add('show')
 

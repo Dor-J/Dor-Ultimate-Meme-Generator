@@ -345,6 +345,11 @@
     height: 3em;
   }
 
+  .emoji-container {
+    font-size: 2.5rem;
+    height: 50px;
+  }
+
   /* styles/components/section-header.css */
   .section-header h2 {
     font-size: 2rem;
