@@ -1,4 +1,4 @@
 footer.footer {
-  width: 100%;
+  width: 100vw;
   background-color: var(--bg-clr-secondary-3);
 }

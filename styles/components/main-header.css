@@ -1,7 +1,8 @@
 .main-header {
-  width: 100%;
+  width: 100vw;
   background-color: var(--bg-clr-secondary-3);
   box-shadow: var(--box-shadow-secondary-1);
+  margin-block-end: 1em;
 }
 
 .main-header .logo {
