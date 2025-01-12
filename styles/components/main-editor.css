@@ -1,6 +1,13 @@
 .main-editor {
-  background-color: var(--bg-clr-secondary-1);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(1fr, 300px) 1fr;
+
   place-items: center;
   border-radius: 3em;
+  padding: 0.4em;
+  padding-block-start: 2em;
+
+  background-color: var(--bg-clr-secondary-1);
   box-shadow: var(--box-shadow-primary-2);
 }

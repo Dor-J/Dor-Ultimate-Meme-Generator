@@ -23,13 +23,6 @@
   grid-auto-flow: dense;
 }
 
-/* main editor layout */
-.main-editor {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-
 /* editor tooling layout */
 .editor-tooling-grid {
   grid-template-columns: repeat(2, 1fr);
