@@ -104,6 +104,7 @@ function onSelectPicById(picId) {
   const srcStr = pic.url
   image.src = srcStr
   image.onload = function () {
+    resetLines()
     setCurrentImage(image)
     renderMeme(image)
   }
@@ -119,6 +120,7 @@ function onRandomMeme() {
   const randPic = pics.at(randIdx)
   const editor = getEditor()
   onSelectPicById(randPic.id)
+  resetLines()
   onSetRandomText(6)
   renderPopup('random')
 }
@@ -187,6 +189,7 @@ function onSelectSavedPic(picId) {
 
   let image = new Image()
   image.onload = function () {
+    resetLines()
     setCurrentImage(image)
     renderMeme(image)
   }

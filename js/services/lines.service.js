@@ -67,6 +67,10 @@ function deleteLine(lineId) {
   gLines = gLines.filter((line) => line.id !== lineId)
 }
 
+function resetLines() {
+  gLines = []
+}
+
 // CREATE
 function createNewLine(pos, type = 'text', content = '') {
   const editor = getEditor()
