@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="styles/styles.css" />
     <title>Dor Meme Generator</title>
   </head>
-  <body class="main-layout grid-gap-1" onload="onInit()">
+  <body class="main-layout" onload="onInit()">
     <header class="main-header full flex f-ai-center f-js-da pa-1">
       <div class="logo">S.D.M.G</div>
 
@@ -357,7 +357,7 @@
                   <li class="emoji emoji-ghost">👻</li>
                 </ul>
               </div>
-              <div class="save-container full grid editor-tooling-grid">
+              <div class="save-container full">
                 <a
                   href="#"
                   data-trans="save"
@@ -396,11 +396,11 @@
       </section>
     </main>
 
-    <section class="about" id="about-section">
+    <section class="about full" id="about-section">
       <div class="section-header">
         <h2>About Me</h2>
       </div>
-      <div class="about-container grid pa-1">
+      <div class="about-container grid">
         <img src="images/imgs/me.jpg" alt="My picture" />
         <div class="card about-me">
           <h3>Hi, it's Me</h3>
@@ -416,7 +416,7 @@
       <p>CaDec24 &copy; ex-ultimate-meme-generator</p>
     </footer>
 
-    <div class="popup-container grid hiddenX">
+    <div class="popup-container hidden hide">
       <h3 class="popup-header"></h3>
       <p class="popup-message"></p>
       <button class="btn btn-popup-close" onclick="closePopup()">Close</button>
